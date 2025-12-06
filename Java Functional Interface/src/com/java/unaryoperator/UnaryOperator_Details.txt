@@ -1,0 +1,86 @@
+	UnaryOperator in Java
+	
+	1. What is UnaryOperator?
+	--------------------------
+	- UnaryOperator<T> is a functional interface introduced in Java 8, available in java.util.function package.
+	- It represents an operation on a single operand that produces a result of the same type as its operand.
+	- It extends Function<T, T>.
+	- Its single abstract method is:
+	    T apply(T t);
+	
+	2. Key Points:
+	--------------
+	- Function<T, R> → input T, output R (can be different types).
+	- UnaryOperator<T> → input T, output T (must be the same type).
+	- It improves readability when input and output types are the same.
+	
+	3. Examples:
+	------------
+	Example 1: Square of a number
+	-----------------------------
+	UnaryOperator<Integer> square = x -> x * x;
+	System.out.println(square.apply(5)); // Output: 25
+	
+	Example 2: Convert string to uppercase
+	--------------------------------------
+	UnaryOperator<String> toUpper = s -> s.toUpperCase();
+	System.out.println(toUpper.apply("hello")); // Output: HELLO
+	
+	Example 3: Using UnaryOperator in replaceAll()
+	----------------------------------------------
+	List<String> names = new ArrayList<>(Arrays.asList("john", "alice", "bob"));
+	names.replaceAll(String::toUpperCase);
+	System.out.println(names); // Output: [JOHN, ALICE, BOB]
+	
+	Example 4: Increment number
+	---------------------------
+	UnaryOperator<Integer> increment = n -> n + 1;
+	System.out.println(increment.apply(9)); // Output: 10
+	
+	
+	4. Real-world Use Cases:
+	-------------------------
+	- Mathematical operations (square, increment, negate, absolute value).
+	- String transformations (trim, lowercase, uppercase).
+	- Collection operations (List.replaceAll with transformations).
+	- When input and output must be of the same type.
+	
+	5. Interview Questions:
+	------------------------
+	Q1. What is the difference between Function and UnaryOperator?
+	A1. Function can have different input and output types, UnaryOperator enforces both to be the same type.
+	
+	Q2. Why does UnaryOperator exist if Function<T, R> can do the same thing?
+	A2. For better readability and expressing intent — makes code cleaner when input and output are the same type.
+	
+	Q3. Give real-world scenarios where UnaryOperator is useful.
+	A3. Examples: squaring numbers, trimming strings, converting to upper case, incrementing counters, updating values in lists.
+	
+	Q4. Can UnaryOperator return a different type? Why not?
+	A4. No, because by definition UnaryOperator<T> extends Function<T, T> which enforces the same type for input and output.
+	
+	6. Coding Questions with Answers:
+	---------------------------------
+	
+	Q1. Write a UnaryOperator to calculate the cube of a number.
+	-------------------------------------------------------------
+	UnaryOperator<Integer> cube = n -> n * n * n;
+	System.out.println(cube.apply(3)); // Output: 27
+	
+	Q2. Write a UnaryOperator to remove spaces from a string.
+	----------------------------------------------------------
+	UnaryOperator<String> removeSpaces = s -> s.replaceAll(" ", "");
+	System.out.println(removeSpaces.apply("Hello World")); // Output: HelloWorld
+	
+	Q3. Use UnaryOperator in replaceAll() to append "!" to every element in a list.
+	-------------------------------------------------------------------------------
+	import java.util.*;
+	import java.util.function.UnaryOperator;
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        List<String> list = new ArrayList<>(Arrays.asList("A", "B", "C"));
+	        list.replaceAll(s -> s + "!");
+	        System.out.println(list); // Output: [A!, B!, C!]
+	    }
+	}

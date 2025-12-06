@@ -1,0 +1,16 @@
+package exception;
+
+public class ArrayStoreExampleDay3 {
+
+	public static void storeObjects() {
+		Object strings[] = new String[3];
+		strings[0] = "Hello"; // Storing a String
+		strings[1] = "World"; // Storing another String
+		strings[2] = 123; // Storing another String
+		System.out.println("Objects stored successfully");
+	}
+
+	public static void main(String[] args) {
+		storeObjects();
+	}
+}

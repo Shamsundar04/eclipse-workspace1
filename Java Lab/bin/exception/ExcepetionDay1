@@ -1,0 +1,254 @@
+	Ques : 1
+	=========
+	Exception and Messages 
+	
+	-> Write a program to create an ELC class SimpleExceptionDemo ,which contains main method.
+	
+	-> This program should read two integer numbers for the variables a and b from console using Scanner class.
+	
+	-> If you enter any other character except number (0 - 9) then the error is caught by InputMisMatchException object.
+	
+	-> After that using following methods print the information about the error occurring causes in the console. getMessages(),  printStackTrace(), println(),  toString().
+	
+	
+	
+	TEST CASE 1 :
+	-------------
+	Input :
+	Enter the first integer (a): 10
+	Enter the second integer (b): 20
+	
+	Output:
+	You entered a = 10 and b = 20
+	
+	
+	TEST CASE 2 :
+	-------------
+	Input :
+	Enter the first integer (a): abc
+	
+	Output:
+	getMessage():=> null
+	
+	toString():=> java.util.InputMismatchException
+	
+	println():=> InputMismatchException occurred. Please enter only integer numbers.
+	
+	printStackTrace():=> 
+	java.util.InputMismatchException
+		at java.base/java.util.Scanner.throwFor(Scanner.java:939)
+		at java.base/java.util.Scanner.next(Scanner.java:1594)
+		at java.base/java.util.Scanner.nextInt(Scanner.java:2258)
+		at java.base/java.util.Scanner.nextInt(Scanner.java:2212)
+		at com.testing.SimpleExceptionDemo.main(SimpleExceptionDemo.java:15)
+	
+	
+	TEST CASE 3 :
+	-------------
+	Enter the first integer (a): 10
+	Enter the second integer (b): abc
+	
+	Output :
+	getMessage():=> null
+	
+	toString():=> java.util.InputMismatchException
+	
+	println():=> InputMismatchException occurred. Please enter only integer numbers.
+	
+	printStackTrace():=> 
+	java.util.InputMismatchException
+		at java.base/java.util.Scanner.throwFor(Scanner.java:939)
+		at java.base/java.util.Scanner.next(Scanner.java:1594)
+		at java.base/java.util.Scanner.nextInt(Scanner.java:2258)
+		at java.base/java.util.Scanner.nextInt(Scanner.java:2212)
+		at com.testing.SimpleExceptionDemo.main(SimpleExceptionDemo.java:18)
+	
+	
+	
+	#########################################
+	
+	Ques : 2
+	=========
+	
+	ArrayIndexOutOfBoundException 
+	
+	-> Create a class named ArrayIndexExceptionDemo inside the package com.testing that contains the main method.
+	
+	-> Inside the main method:
+	
+	   Declare and initialize an integer array with 2 elements as follows:
+	   int a[] = new int[2];
+	   a[0] = 10;
+	   a[1] = 20;
+	
+	-> Prompt the user to enter an index value using the Scanner class.
+	
+	-> Try to print the value of the array element at the entered index.
+	
+	-> If the user enters an index outside the valid range (i.e., anything other than 0 or 1), the program should catch the ArrayIndexOutOfBoundsException.
+	
+	-> In the catch block, print the exception details using the following methods:
+	
+	   getMessage()
+	
+	   toString()
+	
+	   printStackTrace()
+	
+	Also, print a custom message using System.out.println() explaining that the user tried to access an invalid index.
+	
+	
+	TEST CASE 1 :
+	-------------
+	
+	Input:
+	3
+	
+	Output:
+	getMessage():=> Index 3 out of bounds for length 2
+	
+	toString():=> java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 2
+	
+	println():=> You tried to access an invalid array index. Please check the index range.
+	
+	printStackTrace():=>
+	java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 2
+		at com.testing.ArrayIndexExceptionDemo.main(ArrayIndexExceptionDemo.java:12)
+	
+	
+	
+	TEST CASE 2 :
+	-------------
+	
+	Input : 
+	2
+	
+	Output :
+	getMessage():=> Index 2 out of bounds for length 2
+	
+	toString():=> java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+	
+	println():=> You tried to access an invalid array index. Please check the index range.
+	
+	printStackTrace():=>
+	java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+		at com.testing.ArrayIndexExceptionDemo.main(ArrayIndexExceptionDemo.java:12)
+	
+	
+	
+	
+	TEST CASE 3 :
+	-------------
+	
+	Input:
+	1 
+	
+	Output:
+	20
+	
+	
+	TEST CASE 4 :
+	-------------
+	
+	Input:
+	0 
+	
+	Output:
+	10
+	
+	
+	#########################################
+	
+	Ques : 3
+	=========
+	
+	IllegalStateException 
+	
+	-> Create a Java class named IllegalStateExceptionDemo inside the package ELC.
+	
+	-> Inside this class, define the following static method:
+	
+	   static void throwIllegalException() {
+	       try {
+	           throw new IllegalStateException("MyException");
+	       } catch (IllegalStateException objA) {
+	           System.out.println("Caught: " + objA);
+	       }
+	   }
+	
+	
+	-> In the main method Print the message: Calling throwIllegalException from main method:
+	
+	-> Call the throwIllegalException() method.
+	
+	
+	
+	TEST CASE 1 :
+	--------------
+	Input:
+	No input required.
+	
+	Output:
+	Calling throwIllegalException from main method:
+	Caught: java.lang.IllegalStateException: MyException
+	
+	
+	#########################################
+	
+	Ques : 4
+	=========
+	
+	Handling NumberFormatException and NullPointerException
+	Objective:
+	Write a Java program that demonstrates how to handle NumberFormatException and NullPointerException. 
+	The program should include a method that takes a string input, prints its length, attempts to convert it to an integer, and performs operations that might result in a NullPointerException. 
+	If an exception occurs, it should be caught and an appropriate message should be displayed.
+	
+	Instructions:
+	-> Create a class named ExceptionHandlingDemo:
+	
+	-> Implement a static method handleExceptions that takes a String parameter representing the input.
+	   Method name : handleExceptions
+	   Access Modifier : public
+	   Non-Access Modifier : static
+	   return type : void
+	   parameters : String
+	
+	-> Inside this method, use a try block to:
+	   Print the length of the input string.
+	   Attempt to convert the string input to an integer using Integer.parseInt().
+	   Attempt to call a method on the input string to deliberately cause a NullPointerException if the string is null.
+	   Catch NumberFormatException and print an appropriate message.
+	   Catch NullPointerException and print an appropriate message.
+	
+	-> Create a main method:
+	   Inside the main method, create a Scanner object to read input from the user.
+	   Prompt the user to enter a string.
+	   Read the user's input and pass it to the handleExceptions method.
+	   Close the Scanner object.
+	
+	
+	TEST CASE 1 :
+	-------------
+	Input : 123
+	
+	Output :
+	Length of the input string: 3
+	Converted to integer: 123
+	
+	TEST CASE 2 :
+	-------------
+	Input : abc
+	
+	Output :
+	Length of the input string: 3
+	NumberFormatException: Input is not a valid integer.
+	
+	
+	TEST CASE 3 :
+	-------------
+	Input : null
+	
+	Output :
+	NullPointerException: Input is null.
+	

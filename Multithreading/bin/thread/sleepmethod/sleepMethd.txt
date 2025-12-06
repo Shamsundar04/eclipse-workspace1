@@ -1,0 +1,162 @@
+	Java Interview Questions and Answers on sleep() Method (2-3 Years Experience)
+	=========================================================
+	
+	1. What is the purpose of the sleep() method in Java?
+	----------------------------------------------------
+	Simple Explanation:
+	The sleep() method is used to pause the execution of the current thread for a specific time (in milliseconds or nanoseconds).
+	
+	Technical Explanation:
+	- It belongs to the Thread class (java.lang.Thread).
+	- Syntax:
+	  Thread.sleep(long millis)
+	  Thread.sleep(long millis, int nanos)
+	- When a thread calls sleep(), it moves from the RUNNING state to the TIMED_WAITING state.
+	- After the specified time, the thread becomes RUNNABLE again and waits for CPU scheduling.
+	
+	
+	2. Does the sleep() method release the lock when a thread goes to sleep?
+	-----------------------------------------------------------------------
+	Answer:
+	No, sleep() does not release any lock or monitor the thread holds.
+	
+	Technical Explanation:
+	If a thread is inside a synchronized block and calls Thread.sleep(), it keeps holding the lock on that object.
+	This is different from wait(), which releases the lock.
+	
+	
+	3. What happens if we pass a negative value to Thread.sleep()?
+	--------------------------------------------------------------
+	Answer:
+	It throws an IllegalArgumentException.
+	
+	Technical Explanation:
+	If you call:
+	Thread.sleep(-1000);
+	The JVM throws:
+	java.lang.IllegalArgumentException: timeout value is negative
+	
+	
+	4. Does sleep() method throw any checked exceptions?
+	----------------------------------------------------
+	Answer:
+	Yes. It throws InterruptedException, which is a checked exception.
+	
+	Technical Explanation:
+	If another thread interrupts the sleeping thread before the specified time elapses, the sleeping thread wakes up early and an InterruptedException is thrown.
+	Hence, sleep() must be enclosed in a try-catch block or declared with throws InterruptedException.
+	
+	Example:
+	try {
+	    Thread.sleep(2000);
+	} catch (InterruptedException e) {
+	    System.out.println("Thread interrupted");
+	}
+	
+	
+	5. What is the difference between sleep() and wait()?
+	-----------------------------------------------------
+	| Feature | sleep() | wait() |
+	|----------|----------|----------|
+	| Belongs to | Thread class | Object class |
+	| Releases lock | No | Yes |
+	| Requires synchronization | No | Yes |
+	| Wakes up automatically | Yes (after timeout) | No (needs notify/notifyAll) |
+	| Throws exception | InterruptedException | InterruptedException |
+	
+	
+	6. Can we call sleep() on an object instead of a thread?
+	--------------------------------------------------------
+	Answer:
+	No. sleep() is a static method of Thread class.
+	
+	Technical Explanation:
+	You should call it using the class name:
+	Thread.sleep(1000);
+	Even if you call t.sleep(1000), it still pauses the current thread, not necessarily the thread t represents.
+	
+	
+	7. How does the scheduler treat a thread after calling sleep()?
+	---------------------------------------------------------------
+	Answer:
+	The thread goes into the TIMED_WAITING state.
+	
+	Technical Explanation:
+	- The scheduler temporarily removes the thread from the CPU.
+	- After the specified sleep time, the thread becomes RUNNABLE again.
+	- It does not guarantee that the thread will start immediately after waking up; it depends on the CPU scheduler.
+	
+	
+	8. Can we wake up a sleeping thread before its sleep time completes?
+	--------------------------------------------------------------------
+	Answer:
+	Yes, by calling the thread’s interrupt() method.
+	
+	Technical Explanation:
+	Thread t = new Thread(() -> {
+	    try {
+	        Thread.sleep(5000);
+	        System.out.println("Woke up normally");
+	    } catch (InterruptedException e) {
+	        System.out.println("Interrupted during sleep");
+	    }
+	});
+	t.start();
+	t.interrupt(); // wakes up early
+	
+	
+	9. Is sleep() method overloaded in Java?
+	---------------------------------------
+	Answer:
+	Yes. There are two overloaded versions:
+	
+	public static void sleep(long millis) throws InterruptedException
+	public static void sleep(long millis, int nanos) throws InterruptedException
+	
+	
+	10. Write a small program using sleep() method.
+	-----------------------------------------------
+	Code Example:
+	public class SleepDemo {
+	    public static void main(String[] args) {
+	        for (int i = 1; i <= 5; i++) {
+	            System.out.println("Count: " + i);
+	            try {
+	                Thread.sleep(1000); // pauses for 1 second
+	            } catch (InterruptedException e) {
+	                System.out.println("Thread interrupted");
+	            }
+	        }
+	    }
+	}
+	
+	Output:
+	Count: 1
+	Count: 2
+	Count: 3
+	Count: 4
+	Count: 5
+	(each line appears after 1-second delay)
+	
+	
+	11. Why is sleep() declared as a static method?
+	----------------------------------------------
+	Answer:
+	Because it always affects the currently executing thread, not any specific thread object.
+	
+	Technical Explanation:
+	Even if you call t.sleep(1000), it pauses the current thread, not the thread t.
+	That’s why it’s static — to avoid confusion.
+	
+	
+	12. What are real-world uses of the sleep() method?
+	---------------------------------------------------
+	Answer:
+	- Controlling the execution speed of threads.
+	- Simulating time delays (like in progress bars or countdowns).
+	- Polling mechanisms.
+	- Waiting for resources or other threads to complete.
+	
+	=========================================================
+	End of sleep() Method Interview Q&A
+	=========================================================

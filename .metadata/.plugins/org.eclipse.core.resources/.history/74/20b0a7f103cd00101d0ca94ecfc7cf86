@@ -1,0 +1,39 @@
+package com.sham.terminalmethod;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import jdk.javadoc.internal.doclets.toolkit.util.Comparators;
+
+record Student(String course, Integer id, String name){}
+
+public class GroupingByMethod {
+	public static void main(String[] args) {
+		
+//		List<String> listOfCity = Arrays.asList("Delhi", "Indore", "Kolkata", "Pune", "Hyderabad", "Mumbai", "Chennai", "Ampt");
+//	
+//		Map<Integer, List<String>> collect = listOfCity.
+//				stream().collect(Collectors.groupingBy(String::length));
+//	
+//		System.out.println(collect);
+		
+		
+		Student s1 = new Student("Java", 101,"Scott");
+		Student s2 = new Student("Java", 102, "Smith");
+		Student s3 = new Student("Java", 103,"Samrat");
+		Student s4 = new Student("HTML", 104, "Raj");
+		Student s5 = new Student("HTML", 105, "Rahul");
+		Student s6 = new Student("REACT", 106, "Alen");
+		Student s7 = new Student("REACT", 107, "John");
+		
+		Stream<Student> of = Stream.of(s1,s2,s3,s4,s5,s6,s7);
+		Map<String, List<Student>> collect = of.collect(Collectors.groupingBy(Student::course, Collectors.toList()));
+		
+		collect.forEach((k, v)->System.out.println(k+"  "+v));
+		
+		
+	}
+}

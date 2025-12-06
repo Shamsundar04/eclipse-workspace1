@@ -1,0 +1,38 @@
+package com.sham.objectclassmethods;
+
+class Product {
+
+	private int Id;
+	private String Name;
+
+	public Product(int productId, String productName) {
+		super();
+		this.Id = productId;
+		this.Name = productName;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		Product p2 = (Product) obj;
+
+		if (this.Id == p2.Id && this.Name == p2.Name) {
+			return true;
+
+		} else {
+			return false;
+		}
+	}
+}
+
+public class ProductEquality {
+	public static void main(String[] args) {
+
+		Product p1 = new Product(1, "mob");
+		Product p2 = new Product(1, "mob");
+
+		System.out.println(p1 == p2);
+		System.out.println(p1.equals(p2));
+
+	}
+}

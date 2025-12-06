@@ -1,0 +1,19 @@
+package com.sham.overridingmallapp;
+
+public class VIPCustomer extends Customer{
+	
+	protected double discountRate=15.0;
+	public VIPCustomer(String name) {
+		super(name);
+	}
+	
+	public void calculateBill(double ...prices) {
+		super.calculateBill(prices);
+		
+		
+		double discount=super.getTotalCost()*discountRate/100;
+		double finalAmount=super.getTotalCost()-discount;
+		System.out.println("Discount RS :"+discount);
+		System.out.println("Final amount RS :"+finalAmount);
+	}
+}

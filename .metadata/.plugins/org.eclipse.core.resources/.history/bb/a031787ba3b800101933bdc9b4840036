@@ -1,0 +1,10 @@
+package array;
+
+record Course(Integer id, String name, Double fee) {}
+record Offer() {
+	
+}
+
+public record StudentEnrollmentProcess() {
+
+}

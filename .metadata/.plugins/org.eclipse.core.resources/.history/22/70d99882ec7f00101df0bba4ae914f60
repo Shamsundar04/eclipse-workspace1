@@ -1,0 +1,11 @@
+package com.sham.hasarelationship;
+
+public class HasRelation {
+	
+	public static void main(String[] args) {
+		
+		Car car=new Car("naxon", 2025);
+		System.out.println(car);
+	}
+
+}

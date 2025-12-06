@@ -1,0 +1,27 @@
+
+	Thread Priority in Java:
+
+	It is possible in java to assign priority to a Thread. 
+	Thread class has provided two predefined methods setPriority(int newPriority) 
+	and getPriority() to set and get the priority of the thread respectively.
+	
+	public final void setPriority(int newPriority)
+	{
+	}
+	
+	public final int getPriority()
+	{
+		 this.priority;
+	}
+	
+	In java we can set the priority of the Thread in numbers from 1-10 only where 1 is the minimum priority and 10 is the maximum priority.
+	Whenever we create a thread in java by default its priority would be 5 that is normal priority.
+	The user-defined thread created as a part of main thread will acquire the same priority of main Thread.
+	Thread class has also provided 3 final static variables which are as follows :-
+	
+	public static final int MIN_PRIORITY = 1;
+	public static final int NORM_PRIORITY = 5;
+	public static final int MAX_PRIORITY = 10;
+	
+	Note: We can't set the priority of the Thread beyond the limit(1-10) so if we set the priority beyond 
+	the limit (1 to 10) then it will generate an exception java.lang.IllegalArgumentException.

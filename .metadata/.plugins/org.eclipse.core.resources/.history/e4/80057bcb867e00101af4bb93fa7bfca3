@@ -1,0 +1,44 @@
+package com.staticblockmcq;
+
+//public class Test
+//{
+//    static Test obj;
+//
+//    static 
+//    {
+//    	System.out.println(obj);
+//        obj = new Test();
+//        System.out.println("Static block executed");
+//    }
+//
+//    Test()
+//    {
+//        System.out.println("Constructor executed");
+//    }
+//
+//    public static void main(String[] args) 
+//    {
+//        System.out.println("Main method");
+//    }
+//}
+
+
+
+class Test
+{
+    static 
+    {
+        System.out.println("Static Block Executed");
+    }
+
+    static void display()
+    {
+        System.out.println("Static Method Executed");
+     }
+
+    public static void main(String[] args)
+    {
+        System.out.println("Main Method Started");
+        display();
+    }
+}

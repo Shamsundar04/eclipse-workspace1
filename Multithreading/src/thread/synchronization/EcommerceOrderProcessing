@@ -1,0 +1,56 @@
+	E-Commerce Order Processing
+	
+	Create 4 threads:
+	
+	InventoryCheck
+	
+	PaymentProcessing
+	
+	Packaging
+	
+	Dispatch
+	
+	🧠 Logic:
+	
+	InventoryCheck and PaymentProcessing run simultaneously
+	
+	Once both are done → start Packaging
+	
+	Then → Dispatch
+	
+	💡 Use join() to synchronize dependencies.
+	
+	
+	
+	
+	🧩 What Makes This Example Special
+
+	This example introduces dependency management between threads, which is super common in real-world projects.
+	
+	1.Parallel execution:
+	
+		InventoryCheck and PaymentProcessing can run at the same time, because they are independent.
+		This teaches concurrent execution, which is faster than doing one after the other.
+	
+	2.Sequential dependencies:
+	
+		Packaging can only start after both Inventory and Payment are done.
+		Dispatch can only start after Packaging is done.
+		This teaches thread synchronization using .join().
+	
+	3.Real-world analogy:
+		
+		In online shopping, multiple tasks happen simultaneously, but some tasks must wait for others.
+		Understanding this helps you design efficient systems where you don’t block all threads unnecessarily.
+	
+	
+	
+InventoryCheck started...
+PaymentProcessing started...
+InventoryCheck completed!
+PaymentProcessing completed!
+Packaging started...
+Packaging completed!
+Dispatch started...
+Dispatch completed!
+			

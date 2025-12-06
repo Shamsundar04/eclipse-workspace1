@@ -1,0 +1,13 @@
+package in.interview;
+
+public class CurrencyExchanger {
+
+	public static void main(String[] args) {
+		
+		double dollertoInr=83.30;
+		double amount=10;
+		System.out.println(dollertoInr*amount);
+		
+	}
+
+}

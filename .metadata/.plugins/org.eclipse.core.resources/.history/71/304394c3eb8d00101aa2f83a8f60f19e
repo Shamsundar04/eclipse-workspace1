@@ -1,0 +1,46 @@
+package com.sham.anonymousinnerclass;
+
+import java.util.*;
+
+class Employee {
+    String name;
+    int salary;
+
+    Employee(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String toString() {
+        return name + " - " + salary;
+    }
+}
+
+public class EmployeeSort {
+    public static void main(String[] args) {
+        List<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("Sham", 50000));
+        employees.add(new Employee("Amit", 70000));
+        employees.add(new Employee("Ravi", 40000));
+
+        System.out.println("Before Sorting: " + employees);
+
+        // 🔹 Anonymous Inner Class for Comparator
+        Collections.sort(employees, new Comparator<Employee>() {
+            public int compare(Employee e1, Employee e2) {
+                return e1.salary - e2.salary;  // sort by salary
+            }
+        });
+
+        System.out.println("After Sorting by Salary: " + employees);
+
+        // 🔹 Another Anonymous Inner Class for sorting by name
+        Collections.sort(employees, new Comparator<Employee>() {
+            public int compare(Employee e1, Employee e2) {
+                return e1.name.compareTo(e2.name);
+            }
+        });
+
+        System.out.println("After Sorting by Name: " + employees);
+    }
+}

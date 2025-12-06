@@ -1,0 +1,114 @@
+	@FunctionalInterface
+	public interface Consumer<T> {
+	    void accept(T t);
+	}
+	
+	
+	T → type of input
+	accept(T t) → abstract method that performs an operation on the input and returns nothing.
+	
+	. When to Use Consumer?
+	
+	When you want to process or perform an action on data without returning anything.
+	
+	Common in:
+	
+	forEach() operations
+	
+	Logging/debugging
+	
+	Updating object values
+	
+	UI callbacks / event handling
+	
+	
+	** Consumer Interface — Interview Q&A
+	
+	1.What is the Consumer functional interface in Java?
+	
+	Simple: Consumer is a functional interface that takes one input and
+	performs an action, but does not return anything.
+	Technical: Defined in java.util.function package
+	
+	@FunctionalInterface
+	public interface Consumer<T> {
+	    void accept(T t);
+	}	
+	It represents an operation that consumes a value and returns nothing (i.e., void).
+	
+	2. How is Consumer different from Predicate and Function?
+	Answer:
+	Interface   Input    Output       Purpose
+	Predicate   T        boolean      Test a condition
+	Function    T        R (any type) Transform input
+	Consumer    T        void         Perform action
+	
+	3. How do you use Consumer in a forEach loop?
+	
+	Answer:-
+	
+	List<String> names = List.of("Sham", "Amit", "Raj");
+	names.forEach(name -> System.out.println("Hello " + name));
+	Here, the lambda (name -> System.out.println(...)) is a Consumer<String> implementation.
+	
+	4. What is the purpose of andThen() in Consumer?
+	Answer:
+	andThen() allows chaining of two Consumers.
+	Both Consumers will run in sequence.
+	
+	Consumer<String> c1 = s -> System.out.print(s + " ");
+	Consumer<String> c2 = s -> System.out.println(s.toUpperCase());
+	
+	Consumer<String> combined = c1.andThen(c2);
+	combined.accept("java"); // Output: java JAVA
+	
+	5. Can a Consumer return a value?
+	Answer:
+	No. By design, a Consumer’s abstract method accept() returns void.
+	If you need to transform input and return output, use a Function<T,R> instead.
+	
+	6. What is BiConsumer and how is it different from Consumer?
+	Answer:
+	Consumer<T> → accepts one argument.
+	BiConsumer<T,U> → accepts two arguments.
+	
+	BiConsumer<String, Integer> printNameAndAge = 
+	    (name, age) -> System.out.println(name + " is " + age + " years old");
+	
+	printNameAndAge.accept("Sham", 25);
+	// Output: Sham is 25 years old
+	
+	7. Give a real-world use case of Consumer.
+	Answer:
+	Logging framework: Pass a Consumer to log messages.
+	Event handling: A button click handler can be a Consumer of ActionEvent.
+	Updating objects: Apply discounts, add bonus points, modify database entries.
+	
+	Example: Updating student marks
+	Consumer<Student> addGraceMarks = s -> s.marks += 5;
+	addGraceMarks.accept(new Student("Sham", 70));
+	
+	8. Is Consumer a functional interface? How can you prove it?
+	Answer:
+	Yes, it is annotated with @FunctionalInterface and has exactly one abstract method (accept).
+	Default method (andThen) does not violate functional interface rules.
+	
+	9. Can Consumers be used with Streams? Give an example.
+	Answer:
+	Yes, especially with forEach().
+	
+	List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+	numbers.stream()
+	       .filter(n -> n % 2 == 0)
+	       .forEach(n -> System.out.println("Even: " + n));
+	
+	Here, the forEach() method accepts a Consumer.
+	
+	10. Can a Consumer throw a checked exception?
+	Answer:
+	Directly, no. Because accept() doesn’t declare any checked exceptions.
+	But you can handle it inside the lambda, or wrap Consumer with a helper method.
+		
+	
+	
+	

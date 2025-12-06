@@ -1,0 +1,19 @@
+package com.sham.inheritancehierarchical;
+
+public class Employee {
+	
+	protected int employeeId;
+	protected String employeeName;
+	protected double employeeSalary;
+	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Employee(int employeeId, String employeeName, double employeeSalary) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+	}
+}

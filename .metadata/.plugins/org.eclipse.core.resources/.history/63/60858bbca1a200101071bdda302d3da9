@@ -1,0 +1,14 @@
+package exception;
+
+public class ArrayStoreExampleDay3 {
+	
+	public static void storeObjects(){
+		Object arr[]=new String[5];
+		arr[0]="A";
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

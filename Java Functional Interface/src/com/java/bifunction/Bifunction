@@ -1,0 +1,115 @@
+	Function takes one input and produces one output, 
+	BiFunction takes two inputs and produces one output.
+	
+	1. What is BiFunction?
+	-----------------------
+	- BiFunction<T, U, R> is a functional interface introduced in Java 8, available in java.util.function package.
+	- It represents a function that takes two input arguments and produces a result.
+	- Its single abstract method is:
+	    R apply(T t, U u);
+	- It is useful for combining or transforming two inputs into one output.
+	
+	2. Key Points:
+	--------------
+	- Function<T, R> → 1 input, 1 output
+	- BiFunction<T, U, R> → 2 inputs, 1 output
+	- It can be chained with Function using the andThen() method.
+	
+	3. Examples:
+	------------
+	Example 1: Add two integers
+	---------------------------
+	BiFunction<Integer, Integer, Integer> sum = (a, b) -> a + b;
+	System.out.println(sum.apply(5, 3)); // Output: 8
+	
+	Example 2: Concatenate two strings
+	----------------------------------
+	BiFunction<String, String, String> concat = (s1, s2) -> s1 + " " + s2;
+	System.out.println(concat.apply("Hello", "World")); // Output: Hello World
+	
+	Example 3: Object creation with BiFunction
+	------------------------------------------
+	class Employee {
+	    String name;
+	    int age;
+	
+	    Employee(String name, int age) {
+	        this.name = name;
+	        this.age = age;
+	    }
+	}
+	
+	BiFunction<String, Integer, Employee> createEmployee = Employee::new;
+	Employee emp = createEmployee.apply("Alice", 25);
+	System.out.println(emp.name + " - " + emp.age); // Output: Alice - 25
+	
+	Example 4: Using andThen() with BiFunction
+	------------------------------------------
+	BiFunction<Integer, Integer, Integer> multiply = (a, b) -> a * b;
+	Function<Integer, String> resultToString = r -> "Result: " + r;
+	
+	String output = multiply.andThen(resultToString).apply(5, 4);
+	System.out.println(output); // Output: Result: 20
+	
+	
+	Interview Questions on BiFunction
+	----------------------------------
+	Q1. What is the difference between Function and BiFunction?
+	A1. Function takes one input and produces one output, BiFunction takes two inputs and produces one output.
+	
+	Q2. Can BiFunction return void?
+	A2. No, BiFunction always returns a result of type R. If you want no return value, you should use Consumer or BiConsumer.
+	
+	Q3. How do you chain BiFunction with another Function?
+	A3. Using the andThen(Function after) method.
+	
+	Q4. Give a real-world use case for BiFunction.
+	A4. Creating an object from two parameters (name + age), merging two strings into one, calculating price + tax.
+	
+	Q5. Is BiFunction a functional interface?
+	A5. Yes, because it has only one abstract method apply(T t, U u).
+	
+	
+	Coding Questions with Answers
+	-----------------------------
+	
+	Q1. Write a BiFunction that finds the maximum of two numbers.
+	-------------------------------------------------------------
+	BiFunction<Integer, Integer, Integer> max = (a, b) -> a > b ? a : b;
+	System.out.println(max.apply(10, 20)); // Output: 20
+	
+	Q2. Write a BiFunction that joins firstName and lastName into fullName.
+	-----------------------------------------------------------------------
+	BiFunction<String, String, String> fullName = (first, last) -> first + " " + last;
+	System.out.println(fullName.apply("John", "Doe")); // Output: John Doe
+	
+	Q3. Write a program using BiFunction to calculate area of a rectangle (length * width).
+	---------------------------------------------------------------------------------------
+	import java.util.function.BiFunction;
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        BiFunction<Integer, Integer, Integer> area = (length, width) -> length * width;
+	        System.out.println("Area: " + area.apply(10, 5)); // Output: Area: 50
+	    }
+	}
+	
+	Q4. Write a BiFunction that merges two lists into one.
+	-------------------------------------------------------
+	import java.util.*;
+	import java.util.function.BiFunction;
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        BiFunction<List<String>, List<String>, List<String>> mergeLists = (list1, list2) -> {
+	            List<String> merged = new ArrayList<>(list1);
+	            merged.addAll(list2);
+	            return merged;
+	        };
+	
+	        List<String> l1 = Arrays.asList("A", "B");
+	        List<String> l2 = Arrays.asList("C", "D");
+	
+	        System.out.println(mergeLists.apply(l1, l2)); // Output: [A, B, C, D]
+	    }
+	}

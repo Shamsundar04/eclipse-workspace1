@@ -1,0 +1,38 @@
+package com.sham.objectclassmethods;
+
+class Employee{
+	int id;
+	String name;
+	public Employee(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+//		Employee emp=(Employee)obj;
+		
+//		if (this.id==emp.id && this.name.equals(emp.name)) {
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+		
+		return (this==obj);
+	}
+}
+
+
+public class Equals {
+	public static void main(String[] args) {
+		
+		Employee e1=new Employee(1, "raj");
+		Employee e2=new Employee(2, "raj");
+		
+//		System.out.println(e1==e2);
+		System.out.println(e1.equals(e2));
+	}
+}

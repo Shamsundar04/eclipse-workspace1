@@ -1,0 +1,63 @@
+
+	From the above program It is clear that synchronization logic will not work with multiple objects.
+	 * In order to solve the problem of Object level synchronization, Java software people 
+	   introduced another concept i.e "Static Synchronization"
+	
+	*** Static Synchronization
+	
+	* If we declare any method with static and synchronized keyword then It is called static synchronization.
+		Example:
+		public static synchronized void printTable(int num) //static synchronized method
+		{
+			}
+	  In order to call this method, Object is not required, we can directly call with the help of class name.
+	
+	* Here the thread who wants to enter inside the synchronized area will acquire the lock
+	  from the corresponding class.
+	  Unlike objects, we cannot create multiple classes in the same package.
+	
+	* In order to work with block level synchronization we can use the following statement:
+		synchronized(Table.class)
+		{
+			}
+			
+			
+			
+			
+			
+			
+	Understanding Instance vs. Static Synchronization in Java: Thread Safety and Performance Considerations
+	
+	1. Instance Synchronization Explained:
+	- Instance synchronization allows multiple threads to use separate instances concurrently, akin to each employee having their own coffee machine.
+	- Only one thread can access a single object's synchronized method at a time, preventing simultaneous operations on the same instance.
+	
+	2. Static Synchronization Explained:
+	- Static synchronization enforces a single access point for all threads, similar to a shared coffee machine for the entire office.
+	- Only one thread can invoke the static synchronized method at a time, blocking others until the current operation completes.
+	
+	3. Java Implementation of Instance Synchronization:
+	- Example provided features two threads making coffee using synchronized methods in an instance of the CoffeeMachine class.
+	- When one thread is using the coffee machine, the other must wait, illustrating instance-level locking.
+	
+	4. Java Implementation of Static Synchronization:
+	- A shared coffee machine example showcases how static synchronized methods restrict access to one thread at a time across all instances.
+	- Even with multiple threads, only one can operate on the static method, demonstrating class-level synchronization.
+	
+	5. Key Differences in Synchronization Types:
+	- Instance synchronization allows concurrent operations on different instances, while static synchronization restricts access to a single shared resource.
+	- This distinction leads to differences in performance and potential contention among threads for shared resources.
+	
+	6. Bank Account Example:
+	- The BankAccount class illustrates both synchronization types; instance methods for individual transactions and a static method for cumulative transaction tracking.
+	- This structure ensures that each account’s balance remains correct, while transactionCount is centralized and controlled.
+	
+	7. Potential Issues Without Synchronization:
+	- Removing the synchronized keyword can lead to race conditions, resulting in incorrect balances during concurrent transactions.
+	- Inconsistent updates of static fields like transactionCount can occur without synchronization, leading to erroneous states and data integrity issues.
+	
+	8. Performance Improvement Suggestions:
+	- Consider using ReentrantLock for better control and performance in highly-contested areas of code, especially for the shared transaction count.
+	- Employ atomic variables for managing shared counters, providing thread-safe increments without traditional synchronization overhead.
+	
+		

@@ -1,0 +1,23 @@
+Definition:
+	Data Hiding is an object-oriented programming principle that restricts direct access to the internal data of a class.
+	It is used to protect data from unauthorized or accidental modification
+	
+	
+Purpose:
+	To secure the data of a class.
+	To allow controlled access to class members (variables).
+	To achieve encapsulation (one of the main OOP principles).
+	
+------------------------------------------------
+| Concept       | Use                          |
+| ------------- | ---------------------------- |
+| `private`     | Hide data from other classes |
+| Getter method | Read private data            |
+| Setter method | Write/change private data    |
+------------------------------------------------	
+
+
+Benefits:
+	🎯 Security: Prevents accidental misuse of sensitive data.
+	🎯 Validation: You can check conditions in setters (e.g., salary > 0).
+	🎯 Maintainability: Internal logic can change without affecting external code.

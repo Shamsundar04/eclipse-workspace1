@@ -1,0 +1,22 @@
+package com.sham.treeset;
+
+import java.util.TreeSet;
+
+public class TreeSetDemo {
+	public static void main(String[] args) {
+		
+//		TreeSet internally use comparable interface compareTo() method to perform the natural sorting order
+//		it does not accept the null 
+//		it does not accept non comparable objects
+		TreeSet<Integer> set = new TreeSet<>();
+		set.add(5);
+		set.add(3);
+		set.add(7);
+		set.add(1);
+		
+//		set.add(null);
+		set.add("stirn");
+
+		System.out.println(set);
+	}
+}

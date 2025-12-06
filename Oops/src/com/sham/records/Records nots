@@ -1,0 +1,25 @@
+-> Records are immutable data carrier so, now with the help of record we can send our 
+   immutable data (final data) from one application to another application.
+
+-> It is also known as DTO (Data transfer object) OR POJO (Plain Old Java Object) classes.
+
+-> It is mainly used to concise our code as well as remove the boiler plate code.
+
+-> In record, automatically constructor will be generated which is known as canonical constructor
+   and the variables which are known as components are by default final.
+
+-> In order to validate the outer world data, 
+   we can write our own constructor which is known as compact constructor.
+
+-> Record will automatically generate the implemenation of toString(), equals(Object obj) and hashCode()
+   method. Compiler will automatically add getter method which depends upon the name of the componenets.
+
+-> We can define static and non static method as well as static variable and static block inside the record.
+   We cannot define instance variable and instance block inside the record.
+
+-> We cann't extend or inherit records because by default every record is implicilty final and
+   It is extending from java.lang.Reocrd class, which is an abstract class.
+
+-> We can implement an interface by using record.
+
+-> We don't have setter facility in record because by default components are final.

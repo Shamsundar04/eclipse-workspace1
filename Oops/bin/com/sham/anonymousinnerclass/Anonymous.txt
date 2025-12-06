@@ -1,0 +1,12 @@
+
+ ** An anonymous inner class is a class without a name that we use when we need to provide an implementation only once.
+ ** It is commonly used with interfaces or abstract classes like Runnable or Comparator.
+The main advantage is that it reduces boilerplate code since we don’t need to create a separate class file."
+
+
+ Quick Summary Line:
+
+ When to use? → When we need a one-time implementation of an interface/abstract class.
+ Where used in real life? → Threads, sorting, callbacks, event handling.
+ 
+ 

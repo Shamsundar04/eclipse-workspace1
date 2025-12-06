@@ -1,0 +1,121 @@
+package com.staticblockmcq;
+
+//public class Test
+//{
+//    static Test obj;
+//
+//    static 
+//    {
+//    	System.out.println(obj);
+//        obj = new Test();
+//        System.out.println("Static block executed");
+//    }
+//
+//    Test()
+//    {
+//        System.out.println("Constructor executed");
+//    }
+//
+//    public static void main(String[] args) 
+//    {
+//        System.out.println("Main method");
+//    }
+//}
+
+
+
+//class Test
+//{
+//    static 
+//    {
+//        System.out.println("Static Block Executed");
+//    }
+//
+//    static void display()
+//    {
+//        System.out.println("Static Method Executed");
+//     }
+//
+//    public static void main(String[] args)
+//    {
+//        System.out.println("Main Method Started");
+//        display();
+//    }
+//}
+
+
+//
+//class Test
+//{
+//    static 
+//    {
+//        System.out.println("Static Block Executed");
+//    }
+//
+//    static void display()
+//    {
+//        System.out.println("Static Method Executed");
+//     }
+//
+//    public static void main(String[] args)
+//    {
+//        System.out.println("Main Method Started");
+//        display();
+//    }
+//}
+
+
+//	class Demo
+//	{
+//	  public static final int VALUE;
+//	
+//	    static 
+//	    {
+//	        VALUE = 50;
+//	        System.out.println("Value is : " + VALUE);
+//	    }
+//	}
+//	class Test 
+//	{
+//		public static void main(String[] args)
+//		{
+//	       System.out.println("Main Method VALUE = " + Demo.VALUE);
+//	    }
+//	}
+
+
+	class Singleton 
+	{
+	    private static Singleton instance;
+	
+	    static 
+		{
+	        instance = new Singleton();
+	        System.out.println("3 Static Block: Singleton Instance Created");
+	    }
+	
+	    private Singleton() 
+		{
+	        System.out.println("2 Constructor: Singleton Object Created");
+	    }
+	
+	    public static Singleton getInstance() 
+		{
+	        return instance;
+	    }
+	
+		public void greet()
+		{
+			System.out.println("4 Hello Everyone!!!");
+		}
+	}
+	
+	public class Test
+	{
+	    public static void main(String[] args) 
+		{
+	        System.out.println("1 Main Method");
+	        Singleton obj1 = Singleton.getInstance();
+			obj1.greet();        
+	    }
+	}

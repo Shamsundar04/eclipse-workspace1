@@ -1,0 +1,81 @@
+	
+	Supplier<T>
+	
+	-> It is a predefined functional interface available in java.util.function sub package.
+	
+	@FunctionalInterface
+	public interface Supplier<T>
+	{
+	T get();
+	}
+	
+ 	Supplier contains an abstract method get() which does not accept any parameter but 
+	It's return type is T that It will supply T type of object.	
+	
+	
+	========================
+	Interview Questions on Supplier
+	========================
+	
+	1. What is the Supplier functional interface in Java?
+	Answer:
+	Simple: It provides a value without input.
+	Technical: Defined in java.util.function with method T get().
+	
+	2. What method is defined in Supplier?
+	Answer:
+	get() → produces a value.
+	
+	3. How is Supplier different from Function?
+	Answer:
+	Supplier: () → T (no input, returns output).
+	Function: T → R (takes input, returns output).
+	
+	4. Write a Supplier that returns the current date.
+	Answer:
+	Supplier<LocalDate> dateSupplier = () -> LocalDate.now();
+	
+	5. Write a Supplier that generates a random number between 1 and 100.
+	Answer:
+	Supplier<Integer> randomSupplier = () -> new Random().nextInt(100) + 1;
+	
+	6. Write a Supplier that returns a default string "Guest".
+	Answer:
+	Supplier<String> defaultName = () -> "Guest";
+	
+	7. Can Supplier take any input? Why or why not?
+	Answer:
+	No, because its functional method get() has no parameters.
+	
+	8. What are some real-world use cases of Supplier?
+	Answer:
+	Lazy initialization, providing default values, generating IDs, supplying config values.
+	
+	9. How is Supplier useful in lazy initialization?
+	Answer:
+	It delays object creation until get() is called.
+	
+	10. Write a Supplier that always returns a new UUID.
+	Answer:
+	Supplier<String> uuidSupplier = () -> UUID.randomUUID().toString();
+	
+	11. What is the difference between Supplier and Consumer?
+	Answer:
+	Supplier: () → T (returns value).
+	Consumer: T → void (takes value, performs action).
+	
+	12. How can Supplier be used to avoid NullPointerException with default values?
+	Answer:
+	Use Supplier.get() to provide a fallback value when the original is null.
+	
+	13. Can you use Supplier with Streams? Give an example.
+	Answer:
+	Yes, in Stream.generate(). Example: Stream.generate(() -> Math.random()).limit(5).forEach(System.out::println);
+	
+	14. Write a Supplier that returns system time in milliseconds.
+	Answer:
+	Supplier<Long> timeSupplier = () -> System.currentTimeMillis();
+	
+	15. When would you prefer Supplier over Function?
+	Answer:
+	When no input is required but you need to generate/provide a value.

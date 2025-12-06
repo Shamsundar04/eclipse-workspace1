@@ -1,0 +1,11 @@
+	When to use Factory Methods
+	
+	Factory methods are great when:
+	You want to encapsulate object creation logic.
+	You don’t want calling code to know the concrete implementation.
+	You want flexibility to change implementations without changing the client code.
+	
+	Example Use Cases:
+	Payment processing: PaymentFactory.getPayment("CreditCard") returns a CreditCardPayment object.
+	Document generation: DocumentFactory.getDocument("PDF") returns a PDF document.
+	Notification system: NotificationFactory.getNotification("Email") returns an email notification.

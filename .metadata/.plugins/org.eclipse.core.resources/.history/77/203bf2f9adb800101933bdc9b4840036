@@ -1,0 +1,64 @@
+package array;
+
+import java.util.Scanner;
+
+record Course(Integer id, String name, Double fee) {}
+record Offer(String offerText) {}
+
+record EducationInstitute(Course []courses, Offer []offers) {
+	
+	public void enrollStudentInCourse(int courseId, String studentName) {
+		
+	}
+}
+
+record Student(String name, EducationInstitute institute) {
+	
+	public void viewCoursesAndFees() {
+		Course[] courses = institute.courses();
+		
+		for(int i=0;i<courses.length;i++) {
+			System.out.println(courses[i]);
+		}
+	}
+	
+	public void viewOffer() {
+		Offer[] offers = institute.offers();
+		
+		for(int i=0;i<offers.length;i++) {
+			System.out.println(offers[i].offerText());
+		}
+	}
+	
+	public void enrollInCourse(Integer courseId) {
+		
+	}
+}
+
+public class StudentEnrollmentProcesss {
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		
+		System.out.print("Enter student name: ");
+		String name=scn.nextLine();
+		
+		Course course[]= {
+				new Course(1, "Java", 35000.0),
+				new Course(2, ".Net", 30000.0),
+				new Course(3, "Python", 32000.0)
+					};
+		Offer offer[]= {
+				new Offer("Special discount: Get 20% off on all courses!"),
+				new Offer("Limited time offer: Enroll in any two courses and get one course free!")
+		};
+		
+		EducationInstitute institute=new EducationInstitute(course, offer);
+		
+		Student student=new Student(name, institute);
+		student.viewCoursesAndFees();
+		student.viewOffer();
+		
+		System.out.print("Enter course ID to enroll: ");
+		int id=scn.nextInt();
+	}
+}

@@ -1,0 +1,17 @@
+
+	*** Synchronization :
+	*
+	It is a technique through which we can control multiple threads but accepting only one thread at a time.
+	*
+	In order to achieve synchronization, we should use synchronized keyword.
+	* Synchronized are is a restricted area so with permission only a thread can enter inside synchronized area.
+	* Synchronization is divided into two types :
+	1) Method Level Synchronization
+	2) Block Level Synchronization
+	1) Method Level Synchronization :
+	t1
+	t2 t3
+	t4
+	t5
+	tn
+	All the threads will wait at method level & only one thread will enter inside the synchronized area.

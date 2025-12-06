@@ -1,0 +1,10 @@
+	In Java, every interface implicitly inherits the Object class methods
+	 (like toString(), equals(), hashCode(), etc.), even though you don’t write extends Object.
+	
+	🔎 Why?
+	
+	All classes in Java extend Object directly or indirectly.
+	
+	When a class implements an interface, it still extends Object, so methods of Object are always available.
+	
+	That’s why an interface doesn’t need to explicitly declare those methods.

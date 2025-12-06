@@ -1,0 +1,29 @@
+package com.sham.objectclassmethods;
+
+class Employee{
+	int id;
+	String name;
+	public Employee(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+}
+
+
+public class Equals {
+	public static void main(String[] args) {
+		
+		Employee e1=new Employee(1, "raj");
+		Employee e2=new Employee(1, "raj");
+		
+		System.out.println(e1==e2);
+		System.out.println(e1.equals(e2));
+	}
+}

@@ -1,0 +1,33 @@
+package exception;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+class FinancialTransactionValidation {
+	public static void main(String args[]) {
+		Scanner scn = new Scanner(System.in);
+		FinancialTransaction obj = new FinancialTransaction();
+		try (scn) {
+			double amt = scn.nextDouble();
+			long accno = scn.nextLong();
+			obj.processTransaction(amt, accno);
+		}  catch (IllegalArgumentException e) {
+			System.out.println("Error processing transaction: Transaction amount must be positive.");
+		}
+		catch (InputMismatchException e) {
+			System.out.println("Invalid input: Please enter a valid number for transaction amount.");
+		}
+	}
+}
+
+class FinancialTransaction {
+	public void processTransaction(double amount, long accNo) {
+
+		if (amount <= 0) {
+			throw new IllegalArgumentException("Error processing transaction: Transaction amount must be positive.");
+		}
+		System.out.println("Processing transaction...");
+		System.out.println("Transaction successful: Amount Rs." + amount + " transferred to account\n" + accNo);
+
+	}
+}

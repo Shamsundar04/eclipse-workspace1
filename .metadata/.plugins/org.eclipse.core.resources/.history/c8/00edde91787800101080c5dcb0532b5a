@@ -1,0 +1,20 @@
+package in.string;
+
+public class FirstRepeatChar {
+	
+	public static String firstRepeatChar(String name) {
+		
+		
+		return null;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		String name="programming";
+		
+		FirstRepeatChar obj=new FirstRepeatChar();
+		String firstRepeatChar = FirstRepeatChar.firstRepeatChar(name);
+		
+	}
+}

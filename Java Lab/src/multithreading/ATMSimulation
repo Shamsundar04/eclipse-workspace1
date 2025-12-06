@@ -1,0 +1,108 @@
+	
+	💡 Question: Inter Thread Communication — ATM Simulation
+	📘 Problem Statement
+	
+	Develop a Java program using Inter Thread Communication (ITC) concepts where multiple threads (Depositor, Drawer, and BalanceChecker) interact with a common Account object.
+	
+	The program should demonstrate:
+	
+	wait() and notify() usage
+	
+	Synchronized methods for thread safety
+	
+	Real-time coordination between deposit and withdrawal actions
+	
+	Thread communication over a shared balance
+	
+	@ Requirements
+	
+	1. Create a class called Account
+	Instance Variable:
+	private int balance = 0; (initial balance is 0)	
+	Methods:
+	1️⃣ deposit(int amount)
+	Make it a synchronized method.
+	Print which thread is depositing how much.
+	Add the amount to the balance.
+	Display the updated balance.
+	Use notify() to wake up any thread waiting to withdraw.
+	
+	2# withdraw(int amount)	
+	Make it a synchronized method.
+	Print which thread is trying to withdraw and how much.
+	If the current balance is less than the withdrawal amount,
+	use a while loop and call wait() to make the thread wait until there is enough balance.
+	Once sufficient balance is available, deduct the amount and print the updated balance.
+	Use notify() to inform other waiting threads.
+	
+	2. Create a class Drawer (extends Thread)
+	Instance Variable:
+	private Account account;
+	Constructor:
+	Use a parameterized constructor to assign the Account object.
+	
+	run() method:
+	
+	Create an int[] withdrawals = {1000, 2000, 1500, 500}
+	
+	Loop through the array using a for-each loop.
+	
+	For each value, call the withdraw() method.
+	
+	Add a 1-second delay (Thread.sleep(1000)) after each withdrawal.
+	
+	3. Create a class Depositor (extends Thread)
+	
+	Instance Variable:
+	
+	private Account account;
+	
+	Constructor:
+	
+	Use a parameterized constructor to assign the Account object.
+	
+	run() method:
+	
+	Create an int[] deposits = {2000, 1000, 3000}
+	
+	Loop through the array using a for-each loop.
+	
+	For each value, call the deposit() method.
+	
+	Add a 1.2-second delay (Thread.sleep(1200)) after each deposit.
+	
+	4. Create a class BalanceChecker (extends Thread)
+	
+	Instance Variable:
+	
+	private Account account;
+	
+	Constructor:
+	
+	Initialize it using a parameterized constructor.
+	
+	run() method:
+	
+	In a loop (5 times), print the message "Checking balance..."
+	
+	Add a short delay (e.g., 800 ms) between each check.
+	
+	5. Create an ELC class named InterThreadCommunicationDemo
+	
+	Inside the main() method:
+	
+	Create an Account object.
+	
+	Create objects of Drawer, Depositor, and BalanceChecker, passing the same Account object to all (HAS-A relation).
+	
+	Start all threads to see the wait–notify coordination in action.
+	
+	🧩 Expected Behavior
+	
+	If the Drawer tries to withdraw but there isn’t enough balance → it waits.
+	
+	When the Depositor adds money → it notifies the Drawer to continue.
+	
+	The BalanceChecker runs independently to display balance check attempts.
+	
+	All threads share the same Account safely because of synchronized methods.

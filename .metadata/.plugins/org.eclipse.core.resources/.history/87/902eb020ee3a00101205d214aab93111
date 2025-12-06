@@ -1,0 +1,11 @@
+package in.c_classroom;
+
+public class ReverseNo {
+
+	public static void main(String[] args) {
+		
+		int a=123;
+		System.out.println(a%10+""+(a/10)%10+""+(a/100));
+	}
+
+}

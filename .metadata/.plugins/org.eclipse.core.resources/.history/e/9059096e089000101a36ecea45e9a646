@@ -1,0 +1,39 @@
+package java8.default_methods;
+
+interface Payment {
+	void pay(double amount);
+
+	default void applyTransationFees() {
+
+	}
+}
+
+class Credit implements Payment {
+
+	public void pay(double amount) {
+		System.out.println("Paid " + amount + " amount by credit card");
+	}
+}
+
+class Debit implements Payment {
+
+	public void pay(double amount) {
+		System.out.println("Paid " + amount + " amount by debit card");
+	}
+}
+
+class UPI implements Payment {
+
+	public void pay(double amount) {
+		System.out.println("Paid " + amount + " amount by upi card");
+	}
+}
+
+public class PaymentApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

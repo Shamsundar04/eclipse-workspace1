@@ -1,0 +1,12 @@
+package in.c_classroom;
+
+public class ReverseNo {
+
+	public static void main(String[] args) {
+		int a=123;
+		
+		
+
+	}
+
+}

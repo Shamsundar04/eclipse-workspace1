@@ -1,0 +1,149 @@
+package interview;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+record Employee(String name, double salary) { }
+
+public class AdvanceRealInterviewQuestion{
+	public static void main(String[] args) {
+		
+//		Q1.How do you retrieve the 5th element from a List in Java 8?
+		
+//		List<String> list = Arrays.asList("a","b","c","d","e","f");
+//		
+//		Optional<String> first = list.stream().skip(4).findFirst();
+//		first.ifPresent(System.out::println);
+		
+		
+		
+//		Q2. Given a String, how do you find the character with the
+//		second-highest frequency using Java 8 Streams?
+		
+//		(For example: "abbcccd" → b=2)
+
+//		String s = "abbcccd";
+//		s.chars().forEach(n->System.out.println((char)n));
+//		
+//		Map<Character, Long> map = s.chars().mapToObj(c->(char)c)
+//		.collect(Collectors.groupingBy(n->n, Collectors.counting()));
+//		
+//		Character second = map.entrySet().stream()
+//				.sorted(Map.Entry.<Character, Long>comparingByValue().reversed())
+//				.skip(1).findFirst()
+//				.get().getKey();
+//				System.out.println(second + "=" + map.get(second));
+		
+		
+//		Q.3 Given s = "abcd", how do you generate the pattern
+//		abbcccdddd using Java 8 Streams?
+//		
+//		String s = "abcd";
+//		IntStream.range(0, s.length())
+//		.mapToObj(i->String.valueOf(s.charAt(i)).repeat(i+1))
+//		.forEach(System.out::print);
+		
+		
+//		Q4. How do you sort a list of Employee objects by both name and salary using Java 8?
+		
+//		List<Employee> employees = List.of(
+//			    new Employee("Sham", 50000),
+//			    new Employee("Amit", 70000),
+//			    new Employee("Amit", 60000),
+//			    new Employee("Raj", 45000)
+//			);
+//		
+//		employees.stream().sorted(Comparator.comparing(Employee::name)
+//				.thenComparing(Employee::salary))
+//		.forEach(e->System.out.println(e));
+				
+		
+		
+//		Q5.Given a list of integers, how do you separate the elements into two
+//		lists — one containing duplicates and the other containing unique elements
+//		using Java 8?
+//
+//		List<Integer> list = Arrays.asList(1,2,3,1,2,4,5)
+		
+//		Duplicates [1,2]
+//		Unique [3,4,5]
+		
+//		List<Integer> list = Arrays.asList(1,2,3,1,2,4,5);
+//		
+//		Map<Integer, Long> freq = list.stream()
+//				.collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+//		
+//		List<Integer> duplicate = freq.entrySet().stream().filter(e->e.getValue()>1)
+//		.map(Map.Entry::getKey)
+//		.collect(Collectors.toList());
+//		
+//		System.out.println(duplicate);
+//		
+//		
+//		List<Integer> unique = freq.entrySet().stream().filter(e->e.getValue()==1)
+//		.map(Map.Entry::getKey)
+//		.collect(Collectors.toList());
+//		
+//		System.out.println(unique);
+		
+		
+		
+		
+//		Q6. How do you find common elements between two sorted integer lists
+//		using Java 8 Streams?
+		
+//		List<Integer> a = Arrays.asList(1,2,3,4);
+//		List<Integer> b = Arrays.asList(2,4,6);
+//		
+//		List<Integer> collect = a.stream().filter(b::contains).collect(Collectors.toList());
+//		System.out.println(collect);
+		
+		
+		
+		
+		
+//		Q.7 From a list of Strings, how do you remove the words that contain
+//		any numeric digits using Java 8?
+//		(Example: "ab1c" should be removed (here number contains in word))
+
+//		List<String> list=Arrays.asList("abc", "ab1c", "hello", "h3i");
+//		
+//		List<String> list2 = list.stream().filter(s->s.chars().noneMatch(Character::isDigit))
+//		.toList();
+//		
+//		System.out.println(list2);
+		
+		
+		
+//		Q.8 Given a sentence, how do you find duplicate words along with their
+//		occurrence count, sorted by frequency in descending order?
+
+//		String sentence="Java is Java and Java is great";
+//			
+//		String[] split = sentence.split(" ");
+//		
+//		Map<String, Long> collect = Arrays.stream(split)
+//				.collect(Collectors.groupingBy(w->w,Collectors.counting()));
+//		
+//		List<String> collect2 = collect.entrySet().stream().filter(e->e.getValue()>1)
+//			.map(e->e.getKey())
+//			.collect(Collectors.toList());
+//		
+//		System.out.println(collect2);
+		
+		
+//		Q10.How do you print the top 3 longest Strings from a list using Java 8 Streams?
+		
+		List<String> list=Arrays.asList("apple","banana","cherry","watermelon","kiwi","strawberry");
+		
+		
+		list.stream().sorted(Comparator.comparing(String::length).reversed())
+		.forEach(System.out::println);
+		
+		
+		
+	}
+}

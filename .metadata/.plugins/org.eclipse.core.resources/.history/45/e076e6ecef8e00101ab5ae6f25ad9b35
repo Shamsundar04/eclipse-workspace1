@@ -1,0 +1,28 @@
+package com.sham.objectclassmethods;
+
+class Product{
+	
+	private int productId;
+	private String productName;
+	
+	public Product(int productId, String productName) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+	}
+	
+	
+}
+
+public class ProductEquality {
+	public static void main(String[] args) {
+		
+		Product p1=new Product(1, "mob");
+		Product p2=new Product(1, "mob");
+		
+		System.out.println(p1==p2);
+		
+		
+
+	}
+}

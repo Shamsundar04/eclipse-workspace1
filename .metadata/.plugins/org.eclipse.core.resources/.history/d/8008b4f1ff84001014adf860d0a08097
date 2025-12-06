@@ -1,0 +1,12 @@
+package com.sham.wrapperclasses;
+
+public class AutoUnboxing {
+
+	public static void main(String[] args) {
+		
+		Integer obj=15;
+		int x=obj.intValue();
+		System.out.println(x);
+	}
+
+}

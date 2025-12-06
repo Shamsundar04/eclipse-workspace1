@@ -1,0 +1,22 @@
+package in.oops;
+
+public class User {
+	
+	int x,y;
+	public User() {
+		this(10,20);
+	}
+	
+	public User(int a, int b) {
+		x=a;
+		y=b;
+	}
+	
+
+	public static void main(String[] args) {
+		
+		User constructors=new User();
+		
+	}
+
+}

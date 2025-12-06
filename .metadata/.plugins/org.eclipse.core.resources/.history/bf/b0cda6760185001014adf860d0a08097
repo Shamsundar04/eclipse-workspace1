@@ -1,0 +1,30 @@
+package com.sham.wrapperclasses;
+
+public class AutoUnboxing {
+
+	public static void main(String[] args) {
+		
+//		Integer obj=15;			// upto jdk 1.4
+//		int x=obj.intValue();
+//		System.out.println(x);
+		
+//		Integer x=10;			// after jdk 1.5
+//		int y=x;
+//		System.out.println(y);
+		
+//		Integer i=15;
+//		System.out.println(i.byteValue());
+//		System.out.println(i.shortValue());
+//		System.err.println(i.intValue());
+//		System.out.println(i.longValue());
+//		System.out.println(i.floatValue());
+//		System.out.println(i.doubleValue());
+		
+		Character c1='A';
+		char charValue = c1.charValue();
+		System.out.println(charValue);
+		
+		
+	}
+
+}

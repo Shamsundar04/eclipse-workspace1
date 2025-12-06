@@ -1,0 +1,48 @@
+package com.sham.interfaces;
+
+
+sealed interface Booking{
+	public void bookTicket(String name,String flightNumber);
+}
+
+sealed interface Payments{
+	public void payment(double amount);
+}
+
+sealed interface Notification{
+	public void notification(String msg);
+}
+
+
+non-sealed class Airlines implements Booking, Payments, Notification{
+
+	@Override
+	public void notification(String msg) {
+		System.out.println("Notification "+msg);
+		
+	}
+
+	@Override
+	public void payment(double amount) {
+        System.out.println("Processing payment of Rs." + amount);		
+	}
+
+	@Override
+	public void bookTicket(String name, String flightNumber) {
+		
+		System.out.println("ticket is booked for "+name+" on flight number "+flightNumber);
+	}
+	
+	
+}
+
+public class MultipleInheritance {
+
+	public static void main(String[] args) {
+		Airlines airlines=new Airlines();
+		airlines.bookTicket("Sham", "indigo");
+		airlines.payment(5000);
+		airlines.notification("arrive on time");
+	}
+
+}

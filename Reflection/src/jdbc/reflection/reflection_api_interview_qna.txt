@@ -1,0 +1,48 @@
+	Reflection API – Interview Questions & Answers
+	
+	1. What is Reflection in Java?
+	Reflection is a feature in Java that allows us to inspect and manipulate classes, methods,
+	fields, and constructors at runtime, even if we don’t know their names at compile time.
+	
+	2. Why is Reflection used?
+	- To create objects dynamically at runtime
+	- To invoke methods without knowing them at compile time
+	- To access private fields/methods
+	- Used heavily in frameworks like Spring, Hibernate, JUnit
+	
+	3. How do you create an object using Reflection?
+	Class<?> cls = Class.forName("com.example.RedBus");
+	Object obj = cls.getDeclaredConstructor().newInstance();
+	
+	4. How do you invoke a method using Reflection?
+	Method m = cls.getMethod("engine");
+	m.invoke(obj); // calls engine() on obj
+	
+	5. How do you access private fields using Reflection?
+	Field f = cls.getDeclaredField("name");
+	f.setAccessible(true);
+	f.set(obj, "Volvo Bus");
+	
+	6. What is the difference between new and Reflection (Class.forName) for object creation?
+	- new → requires compile-time knowledge of the class
+	- Reflection (Class.forName) → loads class dynamically at runtime
+	
+	7. What are the disadvantages of Reflection?
+	- Slower than normal code (performance overhead)
+	- Breaks encapsulation (can access private members)
+	- Compile-time safety is lost → errors at runtime
+	
+	8. Why is newInstance() deprecated in Reflection?
+	Because it doesn’t handle exceptions properly and can’t create objects with private constructors.
+	✅ Correct way:
+	cls.getDeclaredConstructor().newInstance();
+	
+	9. How is Reflection used in frameworks like Spring?
+	- Spring → Dependency Injection (creating and wiring beans at runtime)
+	- Hibernate → Mapping entity classes to database tables
+	- JUnit → Discovering and running test methods
+	
+	10. In your project, why did you use Reflection?
+	“In my BusDepo project, Reflection API was used to dynamically load and instantiate vehicle classes (RedBus, Volvo, etc.) based on user input at runtime. This demonstrates loose coupling and runtime polymorphism without hardcoding class names.”
+
+	

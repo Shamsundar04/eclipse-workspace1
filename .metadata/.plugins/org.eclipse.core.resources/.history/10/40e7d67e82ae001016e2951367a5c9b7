@@ -1,0 +1,78 @@
+package multithreading;
+
+
+class Restaurant {
+	
+	private String name;
+	private String order;
+	private boolean isOrderReady = false;
+	
+	public Restaurant(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public synchronized void placeOrder(String order) {
+		
+		this.order=order;
+		
+		try {
+			while(!isOrderReady) {
+				wait();
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public synchronized void prepareOrder() {
+        System.out.println("Chef: Preparing " + order);
+        try {
+            // Simulate food preparation time
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        isOrderReady = true;
+        System.out.println("Chef: " + order + " is ready!");
+        // Notify waiter that food is ready
+        notify();
+    }
+
+	public String getRestaurantName() {
+		return this.name;
+	}
+}
+
+class Waiter extends Thread{
+	private Restaurant restaurant;
+	private String orderName;
+	
+	public Waiter(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+	
+	public void acceptOrder(String orderName) {
+		this.orderName=orderName;
+		System.out.println("Waiter: Placed order for "+orderName);
+	}
+	
+	@Override
+	public void run() {
+		restaurant.placeOrder(orderName);
+		System.out.println("Waiter: Serving the "+orderName);
+	}	
+}
+
+class Chie
+
+public class RestaurantSystem {
+	public static void main(String[] args) {
+		
+		Restaurant restaurant=new Restaurant("KFC");		
+		Waiter waiter=new Waiter(restaurant);		
+		System.out.println("Welcome to KFC Restaurant!!!");
+		waiter.acceptOrder("fried chicken");
+		waiter.start();
+	}
+}

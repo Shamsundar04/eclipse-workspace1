@@ -1,0 +1,28 @@
+package array;
+
+record Course(Integer id, String name, Double fee) {}
+record Offer(String offerText) {}
+
+record EducationInstitute(Course []courses, Offer []offers) {
+	
+	public void enrollStudentInCourse(int courseId, String studentName) {
+		
+	}
+}
+
+record Student(String name, EducationInstitute []institute) {
+	
+	public void viewCoursesAndFees() {
+		
+	}
+	
+	public void viewOffer() {
+		
+	}
+	
+	
+}
+
+public class StudentEnrollmentProcesss {
+
+}

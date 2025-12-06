@@ -1,0 +1,25 @@
+	@FunctionalInterface
+	public interface Predicate<T> {
+	    boolean test(T t);
+	}
+	T → type of input parameter
+	test(T t) → abstract method that evaluates the condition and returns a boolean
+	
+	In short :- 
+		Predicate = A condition (T → boolean) that you can chain with
+		and(), or(), negate(), and use widely in functional programming with Java.
+
+
+-> A Predicate is a functional interface in Java that represents a boolean condition.
+-> Think of it as a test/check: "Does this object satisfy the condition?"
+-> It takes one input and always returns true or false.
+-> You often use it in filtering, validations, and conditional logic with streams or collections.
+	
+	
+-> When you need a boolean condition (true/false logic).
+	->Common in:	
+	->Stream filtering (filter())	
+	->Validations	
+	->Conditional execution
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

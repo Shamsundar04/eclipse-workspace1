@@ -1,0 +1,11 @@
+Comparator → Sorting business objects (employees, orders, products).
+
+Predicate → Conditional checks in authentication, validation, workflows.
+
+Stream → Data pipelines in finance, IoT, reporting.
+
+Collectors → Aggregation in analytics and dashboards.
+
+Optional → Safe handling of nulls in enterprise systems.
+
+Function.identity() → Simplifies mapping in ETL/data processing apps.

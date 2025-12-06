@@ -1,0 +1,13 @@
+package in.string;
+
+public class SortString {
+
+	public static void main(String[] args) {
+		
+		String string = "edcab";
+		
+		System.out.println();
+
+	}
+
+}

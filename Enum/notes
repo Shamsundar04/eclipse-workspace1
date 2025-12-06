@@ -1,0 +1,63 @@
+	enum in java:
+	
+	* enum is a keyword in java which was introduced from JDK 1.5V.
+	
+	* It is similar to a class because class file will be created as well as our java compiler will 
+	  automatically generate an equivalent class for the enum.
+	
+	* It is used to declare universal constants, all the universal constants must be separated by 
+	  comma and is optional at the end.
+	
+	Example:
+			public enum Color {
+				RED, BLUE, PINK //public + static + final
+			}
+			
+	* All the enum constants are by default public, static and final.
+	
+	* For every enum compiler will generate the following.class file.
+
+	  An enum, we can define inside a class, outside of the class as well as inside the method.
+	
+	* At the time of compilation, automatically one static method is added by java compiler 
+	  to the enum.class file to fetch all the enum constants, the return type of this method is enum array.
+	
+		public static enum[] values();
+	
+	* Every enum object contains two properties name and order position so java.lang.Enum class 
+	  has provided a protected constructor to assign the name and order position of enum constant, 
+	  the order position always starts from 0.
+	
+		public static final Color RED = new Color("RED", 0);
+		public static final Color PINK = new Color("PINK", 1);
+	
+	* In order to find out the order position of an enum constant we can use ordinal method.
+		public final int ordinal();
+	
+	* Every enum extends from java.lang. Enum class so enum cannot extend any other class as well as 
+	  a class cannot extend an enum because enum is implicitly final.
+
+	* enum cannot extend a class but it can implement multiple interfacses.
+
+	* The first line of every enum is reserved for enum constant. If we want to write any other member inside enum then It must be after enum constant and; is compulsory.
+
+	* As we know an enum is internally a class so we can write everthing like static & non static field, static and non static. method, static and non static block but all these members must be written after enum constant.
+
+	* We can define constrauctor inside an enum but It must be private.
+
+	* Every enum constant is by default object of type enum.
+
+	* At the time of loading the enum constant, appropriate constrauctor will be executed automatically.
+
+	* Enum is containng enum constants, so we can pass thses constants in switch statement.
+
+	* We can compare two enum constants by using operator OR equals(Object obj) method of java.lang.Enum class.
+	equals(Object obj) method is final and Internally it also uses operator only.
+
+	* In java.lang. Enum class name() and ordinal() methods are final so we cannot override 
+	hence we cannot change the name and order position of enum constants.
+	
+	
+	
+	
+	

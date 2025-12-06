@@ -1,0 +1,126 @@
+	💡 Question: Multithreading Master Program – Library Management System (Producer–Consumer Model)
+	
+	📘 Problem Statement:
+	Design a Java program that simulates a Library Book Management System using Multithreading concepts.
+	
+	In this system:
+	- BookProducer adds new books to the library.
+	- BookConsumer borrows (takes out) books from the library.
+	- Both threads work on the same shared resource (Library).
+	- The system should demonstrate all major multithreading features:
+	  - Thread creation (via extending Thread)
+	  - Synchronization
+	  - wait–notify communication
+	  - Thread priorities
+	  - Naming threads
+	  - Daemon thread
+	  - join() and sleep()
+	  - Shared resource (Producer–Consumer problem)
+	  - Proper thread-safe output sequence
+	
+	⚙️ Requirements:
+	
+	1️⃣ Create a BLC class called Library
+	Instance Variables:
+	- private int bookCount = 0;
+	- private final int MAX_BOOKS = 5; (maximum number of books that can be stored)
+	
+	Methods:
+	
+	1️⃣ public synchronized void addBook()
+	   - If the bookCount equals MAX_BOOKS, make the thread wait (since the library is full).
+	   - Otherwise, add a book (bookCount++) and print:
+	     "📚 Book added. Total books in library: " + bookCount
+	   - Call notify() to wake up any waiting Consumer threads.
+	
+	2️⃣ public synchronized void borrowBook()
+	   - If there are no books available (bookCount == 0), make the thread wait.
+	   - Otherwise, remove a book (bookCount--) and print:
+	     "📖 Book borrowed. Remaining books in library: " + bookCount
+	   - Call notify() to wake up any waiting Producer threads.
+	
+	2️⃣ Create a BLC class called BookProducer (extends Thread)
+	Instance Variable:
+	- private Library library;
+	
+	Constructor:
+	- Assign the library object using a parameterized constructor.
+	
+	run() method:
+	- Loop 7 times:
+	  - Call library.addBook().
+	  - Use Thread.sleep(1000) between additions.
+	- At the end, print "Producer finished adding books."
+	
+	3️⃣ Create a BLC class called BookConsumer (extends Thread)
+	Instance Variable:
+	- private Library library;
+	
+	Constructor:
+	- Assign the library object using a parameterized constructor.
+	
+	run() method:
+	- Loop 7 times:
+	  - Call library.borrowBook().
+	  - Use Thread.sleep(1200) between borrows.
+	- At the end, print "Consumer finished borrowing books."
+	
+	4️⃣ Create a Daemon Thread class called LibraryMonitor (extends Thread)
+	Purpose:
+	- Runs in the background to display current library status every 2 seconds.
+	
+	run() method:
+	- Use an infinite while(true) loop to print "📊 Monitoring library system...".
+	- Sleep for 2000 ms each time.
+	
+	5️⃣ Create an ELC class called LibrarySystemDemo
+	Inside main() method:
+	1. Create a Library object.
+	2. Create BookProducer, BookConsumer, and LibraryMonitor objects.
+	3. Set names for threads (setName("Producer"), setName("Consumer")).
+	4. Set thread priorities:
+	   - Producer → Thread.MAX_PRIORITY
+	   - Consumer → Thread.NORM_PRIORITY
+	5. Set LibraryMonitor as a daemon thread using setDaemon(true).
+	6. Start all threads.
+	7. Use join() on producer and consumer to ensure main waits until both finish.
+	8. After threads finish, print "🏁 Library operations completed."
+	
+	🧩 Expected Behavior:
+	- Producer keeps adding books (until full).
+	- Consumer waits when no books available.
+	- Producer waits when library is full.
+	- Both coordinate via wait() and notify().
+	- Daemon thread runs in background showing system status.
+	- Main thread waits until both producer & consumer finish using join().
+	
+	🧾 Expected Sample Output:
+	📊 Monitoring library system...
+	📚 Book added. Total books in library: 1
+	📚 Book added. Total books in library: 2
+	📖 Book borrowed. Remaining books in library: 1
+	📚 Book added. Total books in library: 2
+	📖 Book borrowed. Remaining books in library: 1
+	📚 Book added. Total books in library: 2
+	📊 Monitoring library system...
+	📚 Book added. Total books in library: 3
+	📖 Book borrowed. Remaining books in library: 2
+	📖 Book borrowed. Remaining books in library: 1
+	📖 Book borrowed. Remaining books in library: 0
+	⚠️ No books available. Consumer waiting...
+	📚 Book added. Total books in library: 1
+	Producer finished adding books.
+	Consumer finished borrowing books.
+	🏁 Library operations completed.
+	
+	🧠 Multithreading Concepts Covered:
+	Thread Creation          -> extends Thread
+	Synchronization           -> synchronized methods in Library
+	wait() / notify()         -> Producer–Consumer coordination
+	Thread Priority           -> Setting Producer higher priority
+	Thread Naming             -> setName() usage
+	Thread Sleep              -> Simulating delay
+	Thread Join               -> Main waits for child threads to complete
+	Daemon Thread             -> LibraryMonitor background monitoring
+	Shared Resource           -> Library object
+	Race Condition Avoidance  -> Synchronization ensures safe access

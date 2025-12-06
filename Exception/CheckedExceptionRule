@@ -1,0 +1,58 @@
+
+## Some basic rules while working with checked exception:
+
+	a) If the try block does not throw any checked exception then in the corresponding catch block we can't 
+	   handle checked exception. 
+	   It will generate compilation error i.e "exception never thrown from the corresponding try statement"
+	   
+	b) If the try block does not throw any exception then in the corresponding catch block we can write
+	   Exception OR Throwable because both are the super classes for all types of Exception whether 
+	   it is checked or unchecked
+
+	c) At the time of method overriding if the super class method does not reporting or throwing checked 
+	   exception then the overridden method of sub class not allowed to throw checked exception otherwise 
+	   it will generate compilation error but overridden method can throw Unchecked Exception.
+	   
+	d) If the super class method declare with throws keyword to throw a checked exception, then at the
+	   time of method overriding, sub class method may or may not use throws keyword.
+       If the Overridden method is also using throws keyword to throw checked exception then it must be 
+       either same exception class or sub class, it should not be super class as well as we can't add more
+       exceptions in the overridden method.
+       
+    e) Just like return keyword, we can't use throw keyword inside static and non static block to throw 
+       an exception object because all initializers must be executed normally.
+       
+       
+    f) If we call any method and if the method throws any checked exception OR java.lang.Exception 
+       OR java.lang.Throwable then handling is compulsory at caller Method otherwise it will generate
+       compilation error because Exception and Throwable both are representing checked and Unchecked.
+       
+       
+##  try-catch with return statement
+       
+	   If we write try-catch block inside a method and that method is returning some value then we should write return statement
+	   in both the places ie inside the try block as well as inside the catch block.
+	   
+	   We can also write return statement inside the finally block only (Not recommended), if the finally block is present.
+	   After this return statement we cannot write any kind of statement. 
+	   
+	   (Unrechable) Always finally block return statement having more priority then try-catch return statement because 
+	   finally block return statement override try catch return statement so compiler will generate watrang.
+	   
+	   
+	   
+	   
+	✅ Summary Table
+	----------------------------------------------------------------
+    |      Exception Type		|	        Description		       |
+	----------------------------------------------------------------
+	| IOException				|	Input/Output operation fails   |
+	| FileNotFoundException	    |	File not found 				   |
+	| SQLException			    |	Database access error          |
+	| ClassNotFoundException	|	Missing class while loading    |
+	| InterruptedException	    |	Thread interruption            |
+	| ParseException			|	Invalid format during parsing  |
+	| MalformedURLException  	|	Invalid URL format             |
+	| NoSuchMethodException	    |	Requested method doesn’t exist |
+	----------------------------------------------------------------
+	   

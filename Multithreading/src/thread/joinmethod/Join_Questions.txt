@@ -1,0 +1,49 @@
+	Hard-Level Oral Interview Questions on join() Method
+	-----------------------------------------------------------
+	
+	1️ Can a thread call join() on itself? What happens?
+	Answer:
+	Yes, a thread can technically call join() on itself, but it causes a deadlock.
+	The thread waits for itself to finish, which is impossible, so the program never terminates.
+	
+	2️ Difference between join() and sleep() in terms of locks held?
+	Answer:
+	- sleep() → pauses the current thread but keeps all locks it holds.
+	- join() → pauses the calling thread until another thread finishes and releases any locks on synchronized objects if waiting.
+	
+	3️ If multiple threads call join() on the same thread, what happens?
+	Answer:
+	All calling threads will wait for the target thread to finish. Once the target thread completes, all waiting threads are released simultaneously.
+	
+	4️ How does join() internally work in Java?
+	Answer:
+	Internally, join() calls wait() on the target thread object until isAlive() becomes false.
+	- If timeout is specified, it waits at most that time.
+	- Throws InterruptedException if the waiting thread is interrupted.
+	
+	5️ Can join() guarantee absolute order of execution in multi-threading?
+	Answer:
+	Not absolutely in general. It guarantees only that the calling thread waits until the target thread finishes.
+	Other threads not involved in join() may still run concurrently.
+	
+	6️ What happens if you call join() on a thread that hasn’t started yet?
+	Answer:
+	If a thread is not started, calling join() returns immediately because there’s nothing to wait for.
+	
+	7️ Can join() be used as a synchronization mechanism instead of synchronized blocks?
+	Answer:
+	Yes, partially. join() ensures sequential execution for dependent threads.
+	However, it does not protect shared data, so it cannot replace proper synchronized blocks for data consistency.
+	
+	8️ Explain a scenario where join(long millis) is useful?
+	Answer:
+	join(long millis) is useful when you want the calling thread to wait for another thread only for a limited time.
+	For example, waiting for a background worker to finish but continuing execution if it takes too long.
+	
+	9️ What will happen if join() is called on a thread that already completed?
+	Answer:
+	The calling thread does not wait and continues immediately because the target thread is no longer alive.
+	
+	10 Can join() throw an exception? If yes, when?
+	Answer:
+	Yes, join() can throw InterruptedException if the waiting thread is interrupted while waiting for the target thread to finish.

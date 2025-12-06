@@ -1,0 +1,83 @@
+	RetrieveCustomerObject 
+	
+	Assignment : 01 
+	----------------
+	Perform Serialization and De-Serialization.
+	
+	Create a BLC class Customer with following attributes :
+	private Integer customerId
+	private String customerName
+	private Double customerBill
+	
+	Create a parameterized Constructor to initialize all fields
+	
+	Create a Method getCustomerObject() to get Customer Object from end user
+	Name of the Method : getCustomerObject()
+	Modifiers : public and static
+	Return type : Customer
+	
+	In this Method take the user input from Scanner class to initialize the 
+	instance variable.
+	
+	Generate toString(), getter and setter.
+	
+	
+	Create another class StoreCustomerObject which will store customer object into a file called CustomerObject.txt.
+	
+	The number of Customer object you want to store in a file must be taken from end user through Scanner class.
+	
+	Create another class called RetrieveCustomerObject which will read the 
+	Customer object from file and print the customer data through toString()
+	method.
+	
+	
+	Assignment 02 :
+	---------------
+	Write a Program in Java to Perform Serialization and De-serialization
+	operation on ArrayList Object.
+	Take a BLC class Student
+	Instance variables
+	studentId – private – Integer
+	studentName – private – String
+	studentFees – private – Double
+	dateOfAdmission – private – LocalDate (java.time)
+	
+	Take a parameterized constructor to initialize the instance variables
+	
+	Take a Method getStudentObject()
+	Method Name - getStudentObject()
+	Parameter - No Parameter
+	Access Modifier - public and static
+	Return type - Student
+	This method should take the Student data from client, create and 
+	return Student object from this method.
+	
+	Override toString() method to print Student class properties or 
+	variables.
+	
+	Take an ELC class StoreObject
+	
+	Inside the main method create a for loop which will read the Student 
+	object with user choice and Store the Student object to a file called 
+	Student.txt
+	Take another ELC class RetrieveObject
+	This class will retrieve the Student Object from file and print the 
+	Student information data.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

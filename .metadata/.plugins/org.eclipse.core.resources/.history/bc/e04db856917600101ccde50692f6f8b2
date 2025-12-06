@@ -1,0 +1,29 @@
+package com.sham.inheritancesingle;
+
+class Vehicle {
+	public void start() {
+		System.out.println("Vehicle starting......");
+	}
+
+	public void stop() {
+		System.out.println("Vehicle stoping......");
+	}
+}
+
+class Car extends Vehicle {
+
+	public void playMusic() {
+		System.out.println("Playing music in the car");
+	}
+}
+
+public class SingleInheritance {
+	public static void main(String[] args) {
+
+		Car car = new Car();
+		car.start();
+		car.playMusic();
+		car.stop();
+
+	}
+}

@@ -1,0 +1,25 @@
+package thread.joinmethod;
+
+class BankAccount extends Thread{
+	
+	private double balance=1000;
+
+	public BankAccount(double balance) {
+		super();
+		this.balance = balance;
+	}
+
+
+
+	@Override
+	public void run() {
+		
+		
+	}	
+}
+
+public class DrawbackMultithreading {
+	public static void main(String[] args) {
+		
+	}
+}		

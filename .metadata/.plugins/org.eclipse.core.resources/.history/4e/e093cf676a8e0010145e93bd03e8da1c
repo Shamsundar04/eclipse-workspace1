@@ -1,0 +1,16 @@
+package com.sham.interfaces;
+
+interface Payment{
+	
+	public void pay(double amount);
+}
+
+public class BankApp {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

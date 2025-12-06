@@ -1,0 +1,124 @@
+	Difference between predicate and bi-predicate
+	
+	Predicate<T> → takes 1 input, returns boolean.
+	BiPredicate<T, U> → takes 2 inputs, returns boolean.
+	
+	BiPredicate in Java
+	
+	1. What is BiPredicate?
+	-----------------------
+	- BiPredicate<T, U> is a functional interface introduced in Java 8, available in java.util.function package.
+	- It represents a predicate (boolean-valued function) of two arguments.
+	- Its single abstract method is:
+	    boolean test(T t, U u);
+	- It is often used when you need to compare or validate two inputs and return a true/false result.
+	
+	2. Key Points:
+	--------------
+	- Predicate<T> → 1 input, returns boolean
+	- BiPredicate<T, U> → 2 inputs, returns boolean
+	- It can be combined with other BiPredicates using:
+	    - and()
+	    - or()
+	    - negate()
+
+	3. Examples:
+	------------
+	Example 1: Check if first number is greater than second
+	--------------------------------------------------------
+	BiPredicate<Integer, Integer> isGreater = (a, b) -> a > b;
+	System.out.println(isGreater.test(10, 5)); // true
+	
+	Example 2: Check if string starts with given prefix
+	----------------------------------------------------
+	BiPredicate<String, String> startsWith = (str, prefix) -> str.startsWith(prefix);
+	System.out.println(startsWith.test("Java", "Ja")); // true
+	
+	Example 3: Combining BiPredicates
+	---------------------------------
+	BiPredicate<Integer, Integer> greater = (a, b) -> a > b;
+	BiPredicate<Integer, Integer> equal = (a, b) -> a.equals(b);
+	System.out.println(greater.or(equal).test(5, 5));  // true
+	System.out.println(greater.and(equal).test(10, 10)); // false
+	
+	4. Real-world use case:
+	-----------------------
+	BiPredicate<String, String> validateCredentials = (username, password) -> 
+	        username.equals("admin") && password.equals("1234");
+	
+	System.out.println(validateCredentials.test("admin", "1234")); // true
+	System.out.println(validateCredentials.test("user", "pass"));  // false
+	
+	
+	Interview Questions on BiPredicate
+	----------------------------------
+	Q1. What is the difference between Predicate and BiPredicate?
+	A1. Predicate takes one argument and returns boolean, BiPredicate takes two arguments and returns boolean.
+	
+	Q2. Can you combine multiple BiPredicates?
+	A2. Yes, using and(), or(), and negate() methods.
+	
+	Q3. Give a real-world scenario where BiPredicate is useful.
+	A3. Validating login credentials (username, password), comparing two objects, filtering data with two inputs.
+	
+	Q4. Is BiPredicate a functional interface?
+	A4. Yes, it has a single abstract method test(T t, U u), so it can be used with lambda expressions.
+	
+	Q5. Can BiPredicate be used with streams?
+	A5. Yes, often in filter() when two parameters are required, though more commonly Predicate is used.
+	    BiPredicate can be adapted using custom logic.
+	
+	<----------------------------->
+	Coding Questions with Answers
+	<----------------------------->
+	
+	Q1. Write a BiPredicate that checks if the sum of two integers is even.
+	<----------------------------------------------------------------------->
+	BiPredicate<Integer, Integer> isSumEven = (a, b) -> (a + b) % 2 == 0;
+	System.out.println(isSumEven.test(2, 4)); // true
+	System.out.println(isSumEven.test(3, 4)); // false
+	
+	Q2. Write a BiPredicate that checks if one string contains another string (case insensitive).
+	--------------------------------------------------------------------------------------------
+	BiPredicate<String, String> containsIgnoreCase = 
+	    (str, sub) -> str.toLowerCase().contains(sub.toLowerCase());
+	System.out.println(containsIgnoreCase.test("HelloWorld", "world")); // true
+	
+	Q3. Write a program using BiPredicate to filter a list of employees by department and age.
+	-----------------------------------------------------------------------------------------
+	import java.util.*;
+	import java.util.function.BiPredicate;
+	
+	class Employee {
+	    String name;
+	    String department;
+	    int age;
+	
+	    Employee(String name, String department, int age) {
+	        this.name = name;
+	        this.department = department;
+	        this.age = age;
+	    }
+	}
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        List<Employee> employees = Arrays.asList(
+	            new Employee("John", "IT", 25),
+	            new Employee("Alice", "HR", 30),
+	            new Employee("Bob", "IT", 35)
+	        );
+	
+	        BiPredicate<Employee, Integer> filterByAgeAndDept = 
+	            (emp, ageLimit) -> emp.department.equals("IT") && emp.age > ageLimit;
+	
+	        for (Employee emp : employees) {
+	            if (filterByAgeAndDept.test(emp, 28)) {
+	                System.out.println(emp.name + " from " + emp.department);
+	            }
+	        }
+	    }
+	}
+	
+	Expected Output:
+	Bob from IT

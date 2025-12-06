@@ -1,0 +1,29 @@
+package in.string;
+
+
+public class PalindromeNoChecks {
+
+	public static void main(String[] args) {
+		
+		int num=121;
+		
+		int original=num;
+		int reversed=0;
+		
+		while (original!=0) {
+			
+			int remender=original%10;
+			reversed=reversed*10+remender;
+			original=original/10;
+		}
+		
+		if (original==reversed) {
+			System.out.println(num+" is palindrome no");
+		}
+		else
+		{
+			System.out.println("is not palindrome no");
+		}
+	}
+
+}

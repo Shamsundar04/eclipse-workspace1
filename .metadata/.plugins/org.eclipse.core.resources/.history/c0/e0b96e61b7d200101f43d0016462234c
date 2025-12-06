@@ -1,0 +1,122 @@
+
+	When you call Class.forName(“className”) in Java:
+	-> Find class – JVM looks for the class with the given fully qualified name.	
+	-> Load class – The class’s bytecode is loaded into memory by the class loader.
+	-> Link class – JVM prepares and verifies the class.
+	-> Initialize class – The class’s static blocks and static variables are executed.
+	-> Return Class object – It gives you a Class<?> object which represents the loaded class.
+	
+	# Technical Explanation (Detailed Steps)
+	Loading
+	
+	The Bootstrap / Application ClassLoader loads the bytecode of the class
+	into JVM memory.
+	
+	Example: If you write
+	
+	Class.forName(“com.example.MyClass”);
+	
+	JVM finds MyClass.class in the classpath and loads it.
+	
+	# Linking (3 sub-steps happen here):  
+	
+	Verification: JVM checks the bytecode for correctness and security.
+	Preparation: Memory is allocated for static fields (default values assigned).
+	Resolution: All symbolic references (like method or variable names) are
+	replaced with actual memory references.
+	
+	# Initialization
+	
+	JVM executes all static initializers (static blocks and static variables with values).
+	
+	Example:
+	
+	class MyClass { static { System.out.println(“Static block executed!”); }
+	}
+	
+	When Class.forName(“MyClass”) runs, this static block is executed
+	immediately.
+	
+	Return Class object
+	
+	After initialization, Class.forName() returns the Class object that
+	represents the loaded class.
+	
+	⚖️ Difference with ClassLoader.loadClass()
+	
+	Class.forName(“Xyz”) → loads and initializes the class.
+	
+	ClassLoader.loadClass(“Xyz”) → loads the class but does not initialize
+	it unless you explicitly use it.
+	
+	👉 Example:
+	
+	public class Test { static { System.out.println(“Static block
+	executed!”); }
+	
+	    public static void main(String[] args) throws Exception {
+	        Class.forName("Test"); // Will trigger static block
+	        // Test.class.getClassLoader().loadClass("Test"); // Will NOT trigger static block
+	    }
+	
+	}
+	
+	Output:
+	
+	Static block executed!
+	
+	🟢 When Bytecode is Created
+	
+	The .class bytecode file is created at compile-time by the Java compiler
+	(javac).
+	
+	The JVM loads the bytecode into memory at runtime, when your program
+	actually uses the class (e.g., via Class.forName(), new, etc.).
+	
+	🔵 Technical Explanation
+	
+	Compilation phase (before running the program)
+	
+	When you write a .java file and run:
+	
+	javac MyClass.java
+	
+	The Java compiler (javac) translates the source code (.java) into a
+	bytecode file (MyClass.class).
+	
+	This .class file is stored on disk and is independent of the JVM.
+	
+	Class loading phase (at runtime)
+	
+	When your program executes and needs MyClass, the JVM’s ClassLoader
+	searches the classpath, finds MyClass.class, and loads it into JVM
+	memory.
+	
+	If you call:
+	
+	Class.forName(“MyClass”);
+	
+	JVM will load the already existing .class file into memory.
+	
+	Important distinction
+	
+	Creation of bytecode (.class) → Happens once at compile-time.
+	
+	Loading of bytecode into memory → Happens every time the class is needed
+	at runtime.
+	
+	👉 Example:
+	
+	// File: Test.java class Test { static { System.out.println(“Static
+	block executed!”); } public static void main(String[] args) throws
+	Exception { Class.forName(“Test”); } }
+	
+	Step 1: javac Test.java → Creates Test.class (bytecode) on disk.
+	
+	Step 2: java Test → JVM loads Test.class into memory.
+	
+	Step 3: Class.forName(“Test”) → Forces initialization (runs static
+	block).
+	
+	✅ So, bytecode file is created at compile-time, and JVM loads it at
+	runtime when needed.

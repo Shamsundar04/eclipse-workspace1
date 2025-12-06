@@ -1,0 +1,26 @@
+package in.string;
+
+import java.util.Scanner;
+
+public class PalindromeNoChecks {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Enter the no for check palindrom or not");
+		Scanner scanner=new Scanner(System.in);
+		int num=scanner.nextInt();
+		
+		int original=num;
+		int reversed=0;
+		
+		while (original!=0) {
+			
+			int remender=original%10;
+			reversed=reversed*10+remender;
+			original=original/10;
+		}
+		
+		scanner.close();
+	}
+
+}

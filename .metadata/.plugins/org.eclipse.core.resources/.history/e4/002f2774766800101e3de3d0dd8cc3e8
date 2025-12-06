@@ -1,0 +1,10 @@
+package in.java_8_features;
+
+public class StreamApi {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

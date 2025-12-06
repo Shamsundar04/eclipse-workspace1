@@ -1,0 +1,30 @@
+package com.sham.overloding;
+
+class GeometricShapes{
+	
+	
+	void calculateArea(int side) {
+		System.out.println("area of square "+(side*side));
+	}
+	
+	void calculateArea(int length, int width) {
+		System.out.println("area of reactangel "+(length*width));
+	}
+	
+	void calculateArea(double radius) {
+		System.out.println("area of radius "+(Math.PI*radius*radius));
+	}
+	
+}
+public class ShapeCalculator {
+
+	public static void main(String[] args) {
+		
+		GeometricShapes obj=new GeometricShapes();
+		
+		obj.calculateArea(5);
+		obj.calculateArea(10,10);
+		obj.calculateArea(6f);
+	}
+
+}

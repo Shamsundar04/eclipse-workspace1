@@ -1,0 +1,87 @@
+	🔹 Q1: Basic Usage
+	
+	Question: Why is try-with-resources better than using a finally block to
+	close resources?
+	
+	Answer (Simple): Because it closes resources automatically and avoids
+	boilerplate code.
+	
+	Answer (Technical):
+	
+	In traditional try-finally, if both the try block and the finally block
+	throw exceptions, the original exception may be lost.
+	
+	In try-with-resources, the main exception is preserved, and other
+	exceptions are stored as suppressed exceptions (accessible via
+	getSuppressed()).
+	
+	🔹 Q2: Order of Closing
+	
+	Question: In the code below, in what order will resources be closed?
+	
+	try (Scanner sc = new Scanner(System.in); BufferedReader br = new
+	BufferedReader(new FileReader(“file.txt”))) { // code }
+	
+	Answer (Simple): They will be closed in reverse order: first
+	BufferedReader, then Scanner.
+	
+	Answer (Technical): Java guarantees that resources are closed in the
+	reverse order of their creation inside the try-with-resources header to
+	avoid dependency issues.
+	
+	🔹 Q3: Suppressed Exceptions
+	
+	Question: What is a suppressed exception in try-with-resources? How do
+	you retrieve them?
+	
+	Answer (Simple): If a resource’s close() throws an exception while
+	another exception is already active, the new one becomes suppressed. We
+	retrieve them using e.getSuppressed().
+
+	Answer (Technical): When multiple exceptions occur (one in the try block
+	and others in close()), the JVM preserves the primary exception and
+	attaches the others as suppressed to maintain exception traceability.
+	
+	🔹 Q4: Multiple Exceptions
+	
+	Question: What will be the output of this code?
+	
+	class MyResource implements AutoCloseable { private String name;
+	MyResource(String name) { this.name = name; }
+	
+	    @Override
+	    public void close() throws Exception {
+	        throw new Exception("Closing " + name);
+	    }
+	
+	}
+	
+	public class Test { public static void main(String[] args) { try
+	(MyResource r1 = new MyResource(“R1”); MyResource r2 = new
+	MyResource(“R2”)) { throw new Exception(“Main exception”); } catch
+	(Exception e) { System.out.println(“Caught:” + e.getMessage()); for
+	(Throwable t : e.getSuppressed()) { System.out.println(“Suppressed:” +
+	t.getMessage()); } } } }
+	
+	Answer:
+	
+	Caught: Main exception Suppressed: Closing R2 Suppressed: Closing R1
+	
+	🔹 Q5: AutoCloseable vs Closeable
+	
+	Question: What is the difference between AutoCloseable and Closeable in
+	the context of try-with-resources?
+	
+	Answer (Simple): Both can be used, but Closeable is specific to IO
+	classes, while AutoCloseable is more general.
+	
+	Answer (Technical):
+	
+	AutoCloseable (Java 7) → Defines void close() throws Exception. Can be
+	used for any resource.
+	
+	Closeable (Java 5) → Extends AutoCloseable, defines void close() throws
+	IOException. Mostly used for IO streams.
+	
+	In try-with-resources, both can be used, but AutoCloseable provides more
+	flexibility.

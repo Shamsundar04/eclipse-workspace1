@@ -1,0 +1,240 @@
+	Assignment 01 :
+	----------------------
+	Develop a scenario based program by using Functional interface to provide some discount on the Product on this festival.
+	
+	Coding Requirement :
+	--------------------
+	Create a record called Product.
+	
+	Components :
+	------------
+	 id : Integer
+	 name : String
+	 price : Double
+	
+	Take an ELC class CalculateProductDiscount with main method.
+	In this create a Function<T,R> functional interface which will take Product as a input parameter and will return discounted price on the following criteria :
+	
+	a) 10% discount on Product price, If product price is greater then OR equal 
+	   to 5000.
+	b) 5% discount on Product price, If product price is less then 5000.
+	
+	Note : The Function<T,R> should return the final price that means discounted price. [price - discount].
+	
+	Create a Scanner class to take the Product data as a input from the user
+	and print the following deatils given in the test cases.
+	
+	Test Case for Output :
+	----------------------
+	Test case 01 :
+	--------------
+	Enter Product Id :101
+	Enter Product Name :Laptop
+	Enter Product Price :50000
+	Final price of the product is :45000.0
+	
+	Test case 02 :
+	--------------
+	Enter Product Id :102
+	Enter Product Name :Head Phone
+	Enter Product Price :4000
+	Final price of the product is :3800.0
+	
+	
+	Assignment 02
+	-------------
+	Develop a scenario based program by using Functional interface to provide the notification to the student on successful registration on a particular course.
+	
+	Coding Requirement :
+	---------------------
+	Take a record Student
+	Components :
+	id : Integer
+	name : String
+	course : String
+	
+	Take an ELC class StudentNotification with main method where :
+	
+	Create a Consumer<Student> to write a welcome notification message.[see the Test cases for more details]
+	
+	Take Scanner class for taking the input i.e. number of students [see Test Cases], Inside the loop take Student object and with the help of Consumer<T>, register the student in 
+	a particular course using notification message.
+	
+	Test Cases :
+	------------
+	Test Case 01 :
+	--------------
+	Enter number of students: 3
+	
+	Enter details for Student 1:
+	Enter ID: 101
+	Enter Name: Ravishankar
+	Enter Course: Java
+	Hello Ravishankar! Welcome to the Java course.
+	
+	Enter details for Student 2:
+	Enter ID: 102
+	Enter Name: Rohan
+	Enter Course: Advanced Java
+	Hello Rohan! Welcome to the Advanced Java course.
+	
+	Enter details for Student 3:
+	Enter ID: 103
+	Enter Name: Elina
+	Enter Course: Spring Boot
+	Hello Elina! Welcome to the Spring Boot course.
+	
+	===========================================================================================
+	1.What is the output of the following code?
+	interface NIT
+	{
+		public int myInterface(int a);
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = (int a) -> a*5;
+			int i = nit.myInterface(6);
+			System.out.println(i);
+		}
+	}
+	
+	
+	2.What is the output of the following code?
+	interface NIT
+	{
+		public int myInterface(int a);
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = (String a) -> a*5;
+			int i = nit.myInterface(6);
+			System.out.println(i);
+		}
+	}
+	
+	
+	3.What is the output of the following code?
+	interface NIT
+	{
+		void myInterface(int a);
+		
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = (int a) -> System.out.println(a+5);
+		}
+	}
+	
+	
+	4.What is the output of the following code?
+	interface NIT
+	{
+		void myInterface(int a);
+		
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = (int a) -> System.out.println(a+5);
+			nit.myInterface(15);
+		}
+	}
+	
+	
+	5.What is the output of the following code?
+	interface NIT
+	{
+		void myInterface(int a);
+		void defalutFunction() 
+		{
+			System.out.println("Naresh I Technologies");
+		}
+		
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = (int a) -> System.out.println(a/5);
+			nit.myInterface(15);
+		}
+	}
+	
+	6.What is the output of the following code?
+	interface NIT
+	{
+		void myInterface(int a);
+		default void defalutFunction() 
+		{
+			System.out.println("Naresh I Technologies");
+		}
+		
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = (int a) -> System.out.println(a/5);
+			nit.myInterface(15);
+		}
+	}
+	
+	7.What is the output of the following code?
+	public class Java8 {
+		public static void main(String[] args) {
+			String a = (a) -> {return "NareshITechnologies";};
+		}
+	} 
+	
+	
+	8.What is the output of the following code?
+	interface NIT
+	{
+		String myInterface();
+	}
+	public class Java8
+	{
+	  public static void main(String[] args) {
+			NIT nit = () -> {return "NareshITechnologies";};		
+		}
+	}
+	
+	9. What is the output of the following code?
+	interface NIT
+	{
+		String myInterface();
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = () -> {return "NareshITechnologies";};
+			System.out.println(nit.myInterface());
+		}
+	}
+	
+	10.What is the output of the following code?
+	interface NIT
+	{
+		void myInterface(int a, int b);
+	}
+	public class Java8 {
+		public static void main(String[] args) {
+			NIT nit = (int a, int b) -> System.out.println(a+b);
+			nit.myInterface(5, 10);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Batc ... .txt
+	Displaying Batch_49_Assignment.txt.
+	Assignment
+	Scenario + MCQ on Lambda
+	No due date
+	Posted 4:02 PM
+	Assigned
+	
+	Batch_49_Assignment.txt
+	Text

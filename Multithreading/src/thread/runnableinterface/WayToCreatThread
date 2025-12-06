@@ -1,0 +1,14 @@
+
+     ___________________________________________________________________________________________________
+	| Method                | Interface/Class | Return Value | Best Use Case                            |
+	| --------------------- | --------------- | ------------ | ---------------------------------------- |
+	| `extends Thread`      | Class           | No           | Simple single thread                     |
+	| `implements Runnable` | Interface       | No           | When class already extends another class |
+	| Anonymous Runnable    | Interface       | No           | One-time use                             |
+	| Lambda Runnable       | Interface       | No           | Clean syntax (Java 8+)                   |
+	| `ExecutorService`     | Interface       | No           | Thread pooling                           |
+	| `Callable` & `Future` | Interface       | Yes          | When return result needed                |
+    -----------------------------------------------------------------------------------------------------
+    
+    
+    

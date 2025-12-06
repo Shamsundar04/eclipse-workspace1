@@ -1,0 +1,68 @@
+	
+	Sealed Keyword in Java - Interview Questions and Answers
+	
+	  -----------------------
+	  BASIC LEVEL QUESTIONS
+	  -----------------------
+	
+	1.  What is the sealed keyword in Java? → It’s a modifier that restricts
+	    which classes or interfaces can extend or implement a given class or
+	    interface.
+	
+	2.  When was the sealed keyword introduced in Java? → Introduced in Java
+	    17 (LTS) as a standard feature.
+	
+	3.  Why do we use sealed classes? → To control inheritance, improve
+	    security, and maintain a predictable class hierarchy.
+	
+	4.  What keywords must subclasses of a sealed class use? → Subclasses
+	    must be declared as final, sealed, or non-sealed.
+	
+	5.  Can an abstract class be sealed? → Yes. A sealed class can be
+	    abstract, and only permitted subclasses can extend it.
+	
+	  ------------------------------
+	  INTERMEDIATE LEVEL QUESTIONS
+	  ------------------------------
+	
+	6.  What happens if a class not listed in permits tries to extend a
+	    sealed class? → Compilation error – only the classes listed in the
+	    permits clause are allowed.
+	
+	7.  Is the permits clause always required? → Not always. If all
+	    permitted subclasses are in the same file, Java can infer them
+	    automatically.
+	
+	8.  What’s the difference between sealed, final, and non-sealed?
+	    sealed - Limits inheritance to specific subclasses final - No class
+	    can extend it further non-sealed - Removes restrictions, allowing
+	    unrestricted subclassing
+	
+	9.  Can a sealed interface exist in Java? → Yes. A sealed interface can
+	    restrict which classes or interfaces can implement it.
+	
+	10. Can a sealed class permit another sealed class? → Yes. This allows
+	    building a controlled multi-level hierarchy.
+	
+	  --------------------------------
+	  ADVANCED / PRACTICAL QUESTIONS
+	  --------------------------------
+	
+	11. Can a sealed class improve pattern matching performance? → Yes. The
+	    compiler knows all possible subclasses, allowing better
+	    type-checking and pattern matching optimization.
+	
+	12. How does sealed help in domain modeling? → It lets developers model
+	    fixed hierarchies like shapes, vehicles, or error types — ensuring
+	    only allowed variations exist.
+	
+	13. Is sealed part of the access control mechanism? → Not exactly. It
+	    doesn’t change access levels (public, protected, etc.) — it only
+	    controls subclassing, not visibility.
+	
+	14. Can you mix sealed with record classes? → Yes. You can have a sealed
+	    interface implemented by several record types.
+	
+	15. What is the difference between sealed and enum? sealed class -
+	    Restrict inheritance enum - Fixed set of constants sealed allows
+	    subclass flexibility; enum defines constant instances only.

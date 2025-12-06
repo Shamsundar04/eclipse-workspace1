@@ -1,0 +1,11 @@
+package com.sham.inheritancehierarchical;
+
+public class PermanentEmp extends Employee {
+
+	public PermanentEmp(int employeeId, String employeeName, double employeeSalary) {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

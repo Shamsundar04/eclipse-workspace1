@@ -1,0 +1,19 @@
+package com.sham.payrollsystem;
+
+public class TaxCalculation {
+
+	public static void main(String[] args) {
+
+		Employee e = new Employee(1, "Alice", 30000, 5000, 4000);
+		Manager m = new Manager(2, "Bob", 40000, 6000, 5000, 7000);
+		Trainer t = new Trainer(3, "Charlie", 25000, 4000, 3000, 5, 1000);
+		Sourcing s = new Sourcing(4, "David", 20000, 3000, 2000, 50, 45, 100);
+
+		System.out.println("Employee Gross: " + e.calculateGrossSalary() + ", Tax: " + TaxUtil.calculateTax(e));
+		System.out.println(e.toString());
+//		System.out.println("Manager Gross: " + m.calculateGrossSalary() + ", Tax: " + TaxUtil.calculateTax(m));
+//		System.out.println("Trainer Gross: " + t.calculateGrossSalary() + ", Tax: " + TaxUtil.calculateTax(t));
+//		System.out.println("Sourcing Gross: " + s.calculateGrossSalary() + ", Tax: " + TaxUtil.calculateTax(s));
+
+	}
+}

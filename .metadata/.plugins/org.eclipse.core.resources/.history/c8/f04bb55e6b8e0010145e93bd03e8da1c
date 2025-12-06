@@ -1,0 +1,54 @@
+package com.sham.interfaces;
+
+interface Bank{
+	double getBalance();
+	void deposite(double amount);
+	void withdraw(double amount);
+	
+}
+
+
+class Customer implements Bank{
+	
+	private double amount;
+	
+	public Customer(double amount) {
+		this.amount=amount;
+	}
+
+	@Override
+	public void deposite(double amount) {
+		if (amount<=0) {
+			System.err.println("amount must be positive");
+			System.exit(0);
+		}
+		this.amount=amount;
+		System.out.println("Before amount "+amount+" Updated amount "+this.amount);
+	}
+
+	@Override
+	public void withdraw(double amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public double getBalance() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
+
+
+public class BankApp {
+
+	public static void main(String[] args) {
+		
+		Bank bank=new Customer(1000);
+		bank.deposite(500);
+		
+
+	}
+
+}

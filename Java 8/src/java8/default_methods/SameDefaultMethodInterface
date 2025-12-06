@@ -1,0 +1,7 @@
+->	Multiple inheritance is possible in java by using default method inside an interface,
+		here we need to use super keyword to differenciate the super interface methods.
+->	Before java 1.8, we have abstract method inside an interface but now we can write method body(default method)
+		so, to execute the default method inside an interface we need to take super keyword with 
+		interface name (A.super.m1()).
+->	Whenever a class is implementing from two OR more than two super interafecs and If the interfaces
+		are containing same default method name then we have an ambiguity issue so, compulsory we need to override default method.

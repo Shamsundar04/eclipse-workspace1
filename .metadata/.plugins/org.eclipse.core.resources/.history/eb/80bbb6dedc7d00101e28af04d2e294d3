@@ -1,0 +1,57 @@
+package com.sham.classloadersubsystem;
+
+/*🔹 Delegation Hierarchy Algorithm (Step-by-step)
+	
+	1.Application Class Loader receives a request to load a class.
+	2.Instead of loading it directly, it delegates the request to its parent (Extension Class Loader).
+	3.The Extension Class Loader again delegates to its parent → Bootstrap Class Loader.
+	4.Bootstrap Class Loader tries to load the class:
+	  -> If the class is found in jrt.jar (core classes) → it is loaded.
+	  -> If not found → the request is passed back to the Extension Class Loader.
+	5.Extension Class Loader now tries:
+	  -> found in jre/lib/ext → it loads the class.
+	  -> Otherwise, it passes back to Application Class Loader
+	6.Application Class Loader loads the class from the classpath.
+	7.If not found anywhere → ClassNotFoundException is thrown..
+	
+	
+	      [Bootstrap Class Loader]
+                    ↑
+          [Extension Class Loader]
+                    ↑
+        [Application/System Class Loader]
+                    ↑
+          [User-defined classes]
+
+*/
+
+	/*
+	 * 
+	 * 
+	 *
+	 * 
+	 * */
+class a {
+}
+
+public class TestClassLoader {
+	public static void main(String[] args) throws ClassNotFoundException {
+		// Bootstrap Class Loader loads String class
+		new a();
+		System.out.println(Integer.class.getClassLoader());
+
+		// Extension Class Loader
+		System.out.println(javax.crypto.Cipher.class.getClassLoader());
+
+		// Application Class Loader
+		System.out.println(TestClassLoader.class.getClassLoader().getParent().getParent());
+	
+		Class<?> cls = ClassLoader.getSystemClassLoader().loadClass("java.util.ArrayList");
+		System.out.println("Class loaded: " + cls.getName());
+		
+		ClassLoader systemLoader = ClassLoader.getSystemClassLoader();
+		System.out.println("Parent: " + systemLoader.getParent());
+
+
+	}
+}

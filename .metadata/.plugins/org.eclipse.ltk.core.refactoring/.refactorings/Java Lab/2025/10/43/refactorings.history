@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;multithreading.RestarurantSystem&apos; to &apos;RestaurantSystem&apos;&#x0D;&#x0A;- Original project: &apos;Java Lab&apos;&#x0D;&#x0A;- Original element: &apos;multithreading.RestarurantSystem&apos;&#x0D;&#x0A;- Renamed element: &apos;multithreading.RestaurantSystem&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;RestarurantSystem&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;multithreading{RestarurantSystem.java[RestarurantSystem" matchStrategy="1" name="RestaurantSystem" qualified="false" references="true" similarDeclarations="false" stamp="1761046432369" textual="false" version="1.0"/>
+</session>

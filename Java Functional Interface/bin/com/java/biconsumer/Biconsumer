@@ -1,0 +1,118 @@
+	Consumer takes one input and returns nothing, BiConsumer takes two inputs and returns nothing.
+	
+	Difference from Consumer
+	Consumer<T> → takes 1 input, returns nothing.
+	BiConsumer<T, U> → takes 2 inputs, returns nothing.
+	
+	
+	# Prepare detailed explanation, interview questions, and coding examples about BiConsumer
+	# and export it into a .txt file.
+	
+	"""BiConsumer in Java
+	
+	1. What is BiConsumer?
+	-----------------------
+	- BiConsumer<T, U> is a functional interface introduced in Java 8, available in java.util.function package.
+	- It represents an operation that takes two input arguments and returns no result (void).
+	- Its single abstract method is:
+	    void accept(T t, U u);
+	- It is often used to perform operations on pairs of inputs (like key-value pairs in a Map).
+	
+	2. Key Points:
+	----------------------------
+	- Consumer<T> → 1 input, no return value
+	- BiConsumer<T, U> → 2 inputs, no return value
+	- It can be chained using the method andThen(BiConsumer after).
+	
+	3. Examples:
+	------------
+	Example 1: Print name and age
+	-----------------------------
+	BiConsumer<String, Integer> printDetails = (name, age) -> 
+	    System.out.println(name + " is " + age + " years old");
+	printDetails.accept("Alice", 25);
+	
+	Example 2: Iterating over a Map with BiConsumer
+	-----------------------------------------------
+	Map<String, Integer> scores = new HashMap<>();
+	scores.put("Math", 90);
+	scores.put("Science", 85);
+	
+	BiConsumer<String, Integer> printMap = (k, v) -> 
+	    System.out.println(k + " -> " + v);
+
+	scores.forEach(printMap);
+	
+	Example 3: Chaining BiConsumers with andThen()
+	<---------------------------------------------->
+	BiConsumer<String, String> greet = (a, b) -> 
+	    System.out.print("Hello " + a + " and " + b);
+	
+	BiConsumer<String, String> exclaim = (a, b) -> 
+	    System.out.println("! Welcome!");
+	
+	greet.andThen(exclaim).accept("Alice", "Bob");
+	
+	Output:
+	Hello Alice and Bob! Welcome!
+	
+	
+	Interview Questions on BiConsumer
+	----------------------------------
+	Q1. What is the difference between Consumer and BiConsumer?
+	A1. Consumer takes one input and returns nothing, BiConsumer takes two inputs and returns nothing.
+	
+	Q2. Can BiConsumer return a value?
+	A2. No, it always returns void. If you want a return value, you should use Function or BiFunction.
+	
+	Q3. How can you chain multiple BiConsumers?
+	A3. Using the andThen() method. The first BiConsumer executes first, then the second one.
+	
+	Q4. Give a real-world example where BiConsumer is useful.
+	A4. Iterating over a Map<K, V> using forEach and processing key-value pairs.
+	
+	Q5. Is BiConsumer a functional interface?
+	A5. Yes, because it has only one abstract method accept(T t, U u).
+	
+	
+	Coding Questions with Answers
+	-----------------------------
+	
+	Q1. Write a BiConsumer that prints the product of two integers.
+	---------------------------------------------------------------
+	BiConsumer<Integer, Integer> multiply = (a, b) -> 
+	    System.out.println("Product = " + (a * b));
+	
+	multiply.accept(4, 5); // Output: Product = 20
+	
+	Q2. Write a program using BiConsumer to update student marks in a Map.
+	----------------------------------------------------------------------
+	import java.util.*;
+	import java.util.function.BiConsumer;
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        Map<String, Integer> marks = new HashMap<>();
+	        marks.put("John", 70);
+	        marks.put("Alice", 80);
+	        marks.put("Bob", 65);
+	
+	        BiConsumer<String, Integer> increaseMarks = (name, score) -> 
+	            marks.put(name, score + 5);
+	
+	        marks.forEach(increaseMarks);
+	
+	        System.out.println(marks);
+	    }
+	}
+	
+	Expected Output:
+	{John=75, Alice=85, Bob=70}
+	
+	Q3. Write a BiConsumer that prints two strings in reverse order.
+	-----------------------------------------------------------------
+	BiConsumer<String, String> reversePrint = (a, b) -> 
+	    System.out.println(new StringBuilder(a).reverse() + " " + new StringBuilder(b).reverse());
+	
+	reversePrint.accept("Hello", "World"); // Output: olleH dlroW
+	"""

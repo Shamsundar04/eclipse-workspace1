@@ -1,0 +1,80 @@
+	Centralized, reusable
+	
+	Interview Questions and Real-World Scenarios for Private and Private Static Methods in Interfaces
+	===============================================================================================
+	
+	1. Interview Questions
+	-----------------------
+	
+	## Medium-Level Questions :-
+	1. Why were private and private static methods introduced in interfaces in Java 9?
+	   -> To improve code reuse ability 
+	   -> They help avoid code duplication in default and static methods.
+	
+	2. What is the difference between private and private static methods in an interface?
+	   -> private → can only be called by other instance (default) methods in the same interface.
+	   -> private static → can only be called by other static methods in the same interface.
+	
+	3. Can implementing classes override private or private static methods in an interface?
+	   -> No, they are hidden inside the interface and not visible outside.
+
+	## Hard-Level Questions:
+	
+	4. If an interface has multiple default methods that need a shared logic, how would you design it without code duplication?
+	   -> Use a private method (for instance logic) or private static method (for static logic).
+	
+	5. What is the benefit of private static methods in a multi-service architecture or utility interface?
+	   -> Centralized reusable logic, consistency, single-point change management.
+	
+	6. What happens if you try to access a private static method of an interface from an implementing class?
+	   -> Compile-time error — they are not inherited.
+	
+	7. How do private methods in interfaces solve the “diamond problem” with multiple inheritance in Java?
+	   -> By keeping helpers private, they are not exposed to implementing classes, so there’s no ambiguity.
+	
+	
+	2. Real-World Scenarios
+	-----------------------
+	
+	Where to use private methods in interfaces:
+	- When you have multiple default methods sharing the same instance-level logic.
+	Example:
+	-----------------------------------
+	default void deposit(double amount) {
+	    validate(amount); // private helper
+	    System.out.println("Deposited: " + amount);
+	}
+
+	default void withdraw(double amount) {
+	    validate(amount); // reused private helper
+	    System.out.println("Withdrawn: " + amount);
+	}
+	
+	private void validate(double amount) {
+	    if (amount <= 0) throw new IllegalArgumentException("Amount must be positive");
+	}
+	-----------------------------------
+	
+	Where to use private static methods in interfaces:
+	- When you have multiple static methods in the interface that need common reusable logic.
+	Example:
+	-----------------------------------
+	static String success(String msg) {
+	    return build("SUCCESS", msg);
+	}
+	
+	static String error(String msg) {
+	    return build("ERROR", msg);
+	}
+	
+	private static String build(String status, String msg) {
+	    return "{status:" + status + ", message:" + msg + "}";
+	}
+	----------------------------------
+
+	3. Recommendations
+	----------------------------------
+	- Use private when you want to hide instance helper logic used by multiple default methods.
+	- Use private static when you want to hide static helper logic used by multiple static methods.
+	- Both are for reus-ability & clean design, not for business logic 
+	— the business logic stays in classes, while interfaces keep only contracts + reusable helpers.

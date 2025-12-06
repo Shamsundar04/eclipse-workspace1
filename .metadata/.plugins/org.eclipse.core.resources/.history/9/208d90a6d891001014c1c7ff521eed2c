@@ -1,0 +1,14 @@
+package java8.lambda_expression;
+
+
+public class RunnableInterface {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Runnable runnable=()->System.out.println("Learning Lambda in Java");
+		new Thread(runnable).start();
+
+	}
+
+}

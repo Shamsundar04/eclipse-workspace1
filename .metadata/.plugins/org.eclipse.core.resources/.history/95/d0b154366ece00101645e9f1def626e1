@@ -1,0 +1,50 @@
+package interview;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class AdvanceRealInterviewQuestion{
+	public static void main(String[] args) {
+		
+//		Q1.How do you retrieve the 5th element from a List in Java 8?
+		
+//		List<String> list = Arrays.asList("a","b","c","d","e","f");
+//		
+//		Optional<String> first = list.stream().skip(4).findFirst();
+//		first.ifPresent(System.out::println);
+		
+		
+		
+//		Given a String, how do you find the character with the
+//		second-highest frequency using Java 8 Streams?
+		
+//		(For example: "abbcccd" → b=2)
+
+//		String s = "abbcccd";
+//		s.chars().forEach(n->System.out.println((char)n));
+//		
+//		Map<Character, Long> map = s.chars().mapToObj(c->(char)c)
+//		.collect(Collectors.groupingBy(n->n, Collectors.counting()));
+//		
+//		Character second = map.entrySet().stream()
+//				.sorted(Map.Entry.<Character, Long>comparingByValue().reversed())
+//				.skip(1).findFirst()
+//				.get().getKey();
+//				System.out.println(second + "=" + map.get(second));
+		
+		
+//		Given s = "abcd", how do you generate the pattern
+//		abbcccdddd using Java 8 Streams?
+//		
+		String s = "abcd";
+		
+		IntStream.range(0, s.length())
+		.mapToObj(i->String.valueOf(s.charAt(i)).repeat(i+1))
+		.forEach(System.out::print);
+		
+	}
+}

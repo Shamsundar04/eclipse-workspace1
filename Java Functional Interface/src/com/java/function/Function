@@ -1,0 +1,76 @@
+	It takes one input and returns one output.
+	Think of it as: "Convert this into that."
+	example: Convert a String into its length, or an Integer into its square.
+	
+
+	================================
+   { Interview Questions on Function }
+	================================
+	
+	1. What is the Function functional interface in Java?
+	Answer: 
+	Simple: Function takes one input and returns one output.
+	Technical: It is a functional interface in java.util.function with method R apply(T t).
+	
+	2. What is the method defined in the Function interface?
+	Answer:
+	Simple: apply().
+	Technical: The apply(T t) method takes an argument of type T and returns a result of type R.
+	
+	3. What is the difference between apply(), andThen(), and compose() methods in Function?
+	Answer:
+	Simple: apply() executes, andThen() runs another after, compose() runs another before.
+	Technical: apply(T t) runs the function. andThen() first executes current function then the next.
+	compose() first executes another function then current.
+	
+	4. Write a Function to convert a String into its length.
+	Answer:
+	Function<String, Integer> strLength = s -> s.length();
+	
+	5. Write a Function to find the square of a number.
+	Answer:
+	Function<Integer, Integer> square = n -> n * n;
+	
+	6. How does Function.identity() work?
+	Answer:
+	Simple: Returns the same input without change.
+	Technical: It returns a Function<T, T> that always returns its argument.
+	
+	7. What is the difference between Function and Predicate?
+	Answer:
+	Function: T → R (returns any type).
+	Predicate: T → boolean (returns only true/false).
+	
+	8. What is the difference between Function and Consumer?
+	Answer:
+	Function: Returns a value (T → R).
+	Consumer: Performs action but returns nothing (T → void).
+	
+	9. Can Function return null? What happens if it does?
+	Answer:
+	Yes, it can return null. But the caller must handle NullPointerException if dereferenced.
+	
+	10. How do you use Function in a Stream API map() operation?
+	Answer:
+	stream.map(function).collect(Collectors.toList());
+	
+	11. Write a Function that converts a Student object into the student’s grade.
+	Answer:
+	Function<Student, Character> getGrade = s -> s.grade;
+	
+	12. What is the difference between andThen() and compose() in Function?
+	Answer:
+	andThen(): current function executes first, then the next.
+	compose(): given function executes first, then the current.
+	
+	13. Can Function be chained? Give an example.
+	Answer:
+	Yes. Example: square.andThen(doubleIt);
+	
+	14. Write a Function that takes a String and returns true if it is a palindrome.
+	Answer:
+	Function<String, Boolean> palindrome = str -> str.equals(new StringBuilder(str).reverse().toString());
+	
+	15. What are the advantages of using Function over traditional methods?
+	Answer:
+	Encourages functional programming, simplifies mapping/transformations, works well with Streams.

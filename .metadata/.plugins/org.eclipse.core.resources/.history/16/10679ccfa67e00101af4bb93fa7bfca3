@@ -1,0 +1,544 @@
+package com.staticblockmcq;
+
+//public class Test
+//{
+//    static Test obj;
+//
+//    static 
+//    {
+//    	System.out.println(obj);
+//        obj = new Test();
+//        System.out.println("Static block executed");
+//    }
+//
+//    Test()
+//    {
+//        System.out.println("Constructor executed");
+//    }
+//
+//    public static void main(String[] args) 
+//    {
+//        System.out.println("Main method");
+//    }
+//}
+
+
+
+//class Test
+//{
+//    static 
+//    {
+//        System.out.println("Static Block Executed");
+//    }
+//
+//    static void display()
+//    {
+//        System.out.println("Static Method Executed");
+//     }
+//
+//    public static void main(String[] args)
+//    {
+//        System.out.println("Main Method Started");
+//        display();
+//    }
+//}
+
+
+//
+//class Test
+//{
+//    static 
+//    {
+//        System.out.println("Static Block Executed");
+//    }
+//
+//    static void display()
+//    {
+//        System.out.println("Static Method Executed");
+//     }
+//
+//    public static void main(String[] args)
+//    {
+//        System.out.println("Main Method Started");
+//        display();
+//    }
+//}
+
+
+//	class Demo
+//	{
+//	  public static final int VALUE;
+//	
+//	    static 
+//	    {
+//	        VALUE = 50;
+//	        System.out.println("Value is : " + VALUE);
+//	    }
+//	}
+//	class Test 
+//	{
+//		public static void main(String[] args)
+//		{
+//	       System.out.println("Main Method VALUE = " + Demo.VALUE);
+//	    }
+//	}
+
+
+//	class Singleton 
+//	{
+//	    private static Singleton instance;
+//	
+//	    static 
+//		{
+//	        instance = new Singleton();
+//	        System.out.println("3 Static Block: Singleton Instance Created");
+//	    }
+//	
+//	    private Singleton() 
+//		{
+//	        System.out.println("2 Constructor: Singleton Object Created");
+//	    }
+//	
+//	    public static Singleton getInstance() 
+//		{
+//	        return instance;
+//	    }
+//	
+//		public void greet()
+//		{
+//			System.out.println("4 Hello Everyone!!!");
+//		}
+//	}
+//	
+//	public class Test
+//	{
+//	    public static void main(String[] args) 
+//		{
+//	        System.out.println("1 Main Method");
+//	        Singleton obj1 = Singleton.getInstance();
+//			obj1.greet();        
+//	    }
+//	}
+
+
+
+//	class Foo
+//	{		
+//		Foo()
+//		{
+//			System.out.println("No Argument constructor..");
+//		}
+//	
+//		{
+//			System.out.println("Instance block..");
+//		}
+//	
+//		static
+//		{
+//			System.out.println("Static block...");
+//		}
+//		
+//	}
+//	public class Test 
+//	{	
+//		public static void main(String [] args) 
+//		{	
+//			System.out.println("Main Method Executed ");
+//			new Foo();
+//		}	
+//	}
+
+
+
+
+//	class  Alpha        
+//	{
+//		static 
+//		{
+//			System.out.println("A");
+//		}
+//		 
+//		{
+//			System.out.println("B");
+//		}
+//	
+//		Alpha() 
+//		{		
+//			System.out.println("C");
+//		}
+//	}
+//
+//	class Beta extends Alpha
+//	{
+//		static 
+//		{
+//			System.out.println("D");
+//		}
+//		 
+//		{
+//			System.out.println("E");
+//		}
+//
+//		Beta() 
+//		{		
+//			System.out.println("F");
+//		}
+//	
+//	}
+//	public class Test 
+//	{
+//		public static void main(String[] args) 
+//		{
+//			new Beta(); 
+//		}
+//	}
+
+
+//	class Demo 
+//	{	
+//	    static
+//		{   
+//			i = 100;		
+//		}
+//	
+//	    static int i;
+//	}
+//	
+//	public class Test
+//	{
+//	    public static void main(String[] args) 
+//		{
+//	        System.out.println(Demo.i);
+//		}
+//	}
+
+
+
+//	class Demo 
+//	{	
+//	    static
+//		{   
+//			i = 100;
+//			System.out.println(i);
+//		}
+//	
+//	        static int i;
+//	}
+//	
+//	public class Test
+//	{
+//	    public static void main(String[] args) 
+//		{
+//	        System.out.println(Demo.i);
+//		}
+//	}
+	
+
+
+//	class Demo 
+//	{   
+//		{   
+//			i = 100;
+//			System.out.println(i);
+//		}
+//	        int i;
+//	}
+//
+//	public class Test
+//	{
+//	    public static void main(String[] args) 
+//		{
+//	          new Demo();
+//		}
+//	}
+
+
+	
+//	class  Alpha        
+//	{
+//	   public static final int A;
+//	
+//	   static
+//	   {
+//	     print();
+//		 A = 100;
+//	   }
+//
+//	   public static void print()
+//	   {
+//	     System.out.println("Default value :"+A);
+//	   }
+//	}
+//	
+//	public class Test 
+//	{
+//		public static void main(String[] args) 
+//		{
+//			System.out.println("User value :"+Alpha.A);
+//		}
+//	}
+
+
+
+//	class A
+//	{	
+//		public static final A t1 = new A(); //t1 = null;
+//		
+//	    static
+//		{
+//		   System.out.println("static block");
+//		}
+//	
+//		{
+//		   System.out.println("Non static block");
+//		}
+//	
+//		A()
+//		{
+//			System.out.println("No Argument Constructor");
+//		}
+//	}
+//	
+//	public class Test 
+//	{
+//		public static void main(String[] args) 
+//		{
+//		   new A(); 
+//		}
+//	}
+
+
+//	class Sample
+//	{	
+//		static 
+//		{
+//			System.out.println("Static Block");
+//			x = m1();	
+//			System.out.println(Sample.x);
+//		}
+//		
+//		public static int m1()
+//		{
+//		   System.out.println("Static Method");
+//		   return 100;	
+//		}
+//			
+//		static int x; 
+//	}
+//	
+//	
+//	public class Test 
+//	{
+//		public static void main(String[] args) 
+//		{
+//			System.out.println(Sample.x);
+//		}
+//	}
+
+
+
+//	class Alpha        
+//	{
+//	   public static void print()
+//	   {
+//	       x = 100;
+//		   System.out.println(x);
+//	   }
+//	
+//	   static int x;
+//	}
+//	public class Test 
+//	{
+//		public static void main(String[] args) 
+//		{
+//			Alpha.print();
+//		}
+//	}
+
+
+//	a value which is declare by the final modifier and initialized at the time of declaration
+//  Its value is resolved by the compiler, not at runtime.
+
+//	class Alpha        
+//	{
+//	   public static final int MAX_VALUE = 100;
+//	
+//	   static
+//		{
+//		   System.out.println("Static Block");
+//		}
+//	}
+//	public class Test 
+//	{
+//		public static void main(String[] args) 
+//		{
+//			System.out.println(Alpha.MAX_VALUE);
+//		}
+//	}
+
+
+	class Alpha        
+	{
+	   public static final int MAX_VALUE = 100;
+	   static
+		{
+		   System.out.println("Static Block");
+		}
+	}
+	
+	public class Test 
+	{
+		public static void main(String[] args) 
+		{
+			System.out.println(Alpha.MAX_VALUE);
+		}
+	}
+	
+
+
+//	class  Alpha        
+//	{
+//	   public static final int MAX_VALUE = access();
+//	
+//	   static
+//		{
+//		   System.out.println("Static Block");
+//		}
+//	
+//	    public static int access()
+//		{
+//			return 100;
+//		}
+//	
+//	}
+//	public class Test 
+//	{
+//		public static void main(String[] args) 
+//		{
+//			System.out.println(Alpha.MAX_VALUE);
+//		}
+//	}
+
+
+	
+//	public class Test 
+//	{
+//	
+//	    static 
+//	    {
+//	        System.out.println("Static block: y = " + y);
+//	        y = 20;
+//	    }
+//	
+//	    static int y = 10;
+//	
+//	    public static void main(String[] args) 
+//	    {
+//	        System.out.println("Main: y = " + y);
+//	    }
+//	}
+
+
+
+//	class A 
+//	{
+//	    static 
+//	    {
+//	        System.out.println("Class A static block");
+//	    }
+//	}
+//	
+//	public class Test 
+//	{
+//	    static 
+//	    {
+//	        System.out.println("Class StaticTrick static block");
+//	    }
+//	
+//	    public static void main(String[] args) 
+//	    {
+//	        System.out.println("Main method");
+//	    }
+//	}					
+
+
+
+
+
+//	class Parent 
+//	{
+//	    static 
+//	    {
+//	        System.out.println("Parent static block");
+//	    }
+//	}
+//	
+//	class Child extends Parent 
+//	{
+//	    static 
+//	    {
+//	        System.out.println("Child static block");
+//	    }
+//	
+//	    public static void hello()
+//	    {
+//	        System.out.println("Hello from Child");
+//	    }
+//	}
+//	
+//	public class Test
+//	{
+//	    public static void main(String[] args) 
+//	    {
+//	        Child.hello();
+//	    }
+//	}
+
+
+
+//
+//	public class Test
+//	{
+//	    static Test obj;
+//	
+//	    static 
+//	    {
+//	        obj = new Test();
+//	        System.out.println("Static block executed");
+//	    }
+//	
+//	    Test()
+//	    {
+//	        System.out.println("Constructor executed");
+//	    }
+//	
+//	    public static void main(String[] args) 
+//	    {
+//	        System.out.println("Main method");
+//	    }
+//	}
+
+
+	
+//	public class Test 
+//	{
+//	
+//	    static final int X;
+//	    static final int Y;
+//	
+//	    static 
+//	    {
+//	        X = 5;
+//	    }
+//	
+//	    static
+//	    {
+//	        Y = 10;
+//	    }
+//	
+//	    public static void main(String[] args)
+//	    {
+//	        System.out.println("X = " + X);
+//	        System.out.println("Y = " + Y);
+//	    }
+//	}

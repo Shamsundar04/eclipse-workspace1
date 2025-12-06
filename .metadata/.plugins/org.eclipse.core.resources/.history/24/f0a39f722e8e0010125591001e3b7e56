@@ -1,0 +1,218 @@
+package com.sham.overriding;
+
+import java.util.Scanner;
+
+abstract class Product {
+	
+	private String name;
+	private double price;
+	private String category;
+	
+	public Product(String name, double price, String category) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.category = category;
+	}
+	
+	public abstract double calculateTax();
+	public abstract void applyDiscount(double percentage);
+	
+	
+	
+
+	/**
+	 * @return the price
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "\nProduct Name : " + name + "\nprice=" + price + "\ncategory=" + category;
+	}	
+}
+
+
+
+
+
+class DigitalProduct extends Product{
+	
+	private String lincenseKey;
+
+	public DigitalProduct(String name, double price, String category, String lincenseKey) {
+		super(name, price, category);
+		this.lincenseKey = lincenseKey;
+	}
+
+	@Override
+	public void applyDiscount(double percentage) {
+		
+	   double discount=(getPrice()*percentage)/100;
+	   setPrice(super.getPrice()-discount);
+	   System.out.println("Discount applied :"+discount);
+	   System.out.println("New Price :"+getPrice());
+	    
+	}
+	
+	@Override
+	public double calculateTax() {
+		// TODO Auto-generated method stub
+		return getPrice()*0.05;
+	}
+
+	@Override
+	public String toString() {
+		return "DigitalProduct :"+super.toString() +"\nLicense Key : "+ lincenseKey;
+	}
+}
+
+
+
+
+
+
+
+
+class PhysicalProduct extends Product{
+	
+	private double shippingWeight;
+
+	public PhysicalProduct(String name, double price, String category, double shippingWeight) {
+		super(name, price, category);
+		this.shippingWeight = shippingWeight;
+	}
+
+	@Override
+	public double calculateTax() {
+		// TODO Auto-generated method stub
+		return getPrice()*0.05;
+	}
+
+	@Override
+	public void applyDiscount(double percentage) {
+		// TODO Auto-generated method stub
+		
+		double discount=(getPrice()*percentage)/100;
+		super.setPrice(getPrice()-discount);
+		System.out.println("Discount Applied : "+discount);
+		System.out.println("New Price : "+getPrice());
+		
+	}
+	
+	public double calculateShippingCost() {
+		return shippingWeight*5;
+	}
+
+	@Override
+	public String toString() {
+		return "Physical Product : "+super.toString()+"\nShipping Weight : "+ shippingWeight ;
+	}	
+}
+
+
+public class ProductStore {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Select Product Type :");
+		System.out.println("1. Digital Product");
+		System.out.println("2. Physical Product");
+		
+		Product product=null;
+		
+		try {			
+			
+			Scanner scanner=new Scanner(System.in);
+			int choice=scanner.nextInt();
+			
+			switch (choice) {
+			case 1 ->{
+			System.out.print("Enter Digital Product Name :");
+			scanner.nextLine();
+			String name=scanner.nextLine();
+			
+			System.out.print("Enter Product Price :");
+			double price=scanner.nextDouble();
+			scanner.nextLine();
+			
+			System.out.print("Enter Product Category :");
+			String category=scanner.nextLine();
+			
+			
+			System.out.print("Enter Product License Key :");
+			String licenceKey=scanner.nextLine();
+			
+			System.out.print("Enter the discount % on final bill");
+			int discount=scanner.nextInt();
+			
+			
+			product=new DigitalProduct(name, price, category, licenceKey);
+			
+			
+			DigitalProduct digiProdect=(DigitalProduct)product;
+			System.out.println(product);
+			product.applyDiscount(discount);
+			System.out.println("Tax RS : "+digiProdect.calculateTax());
+			}
+			
+			
+			
+			
+			
+			
+			
+			case 2->{
+				
+				System.out.print("Enter Physical Product Name :");
+				scanner.nextLine();
+				String name=scanner.nextLine();
+				
+				System.out.print("Enter Product Price :");
+				double price=scanner.nextDouble();
+				scanner.nextLine();
+				
+				System.out.print("Enter Product Category :");
+				String category=scanner.nextLine();
+				
+				System.out.print("Enter Product Weight");
+				int weight=scanner.nextInt();
+				scanner.nextLine();
+				
+				System.out.print("Enter the discount % on final bill");
+				int discount=scanner.nextInt();
+				
+				
+				
+				product=new PhysicalProduct(name, price, category, weight);
+				
+				PhysicalProduct shippingCost=(PhysicalProduct)product;
+				
+				System.out.println();
+				System.out.println(shippingCost);
+				product.applyDiscount(discount);
+				System.out.println("Tax RS : "+shippingCost.calculateTax());
+				System.out.println("Shipping Cost : "+shippingCost.calculateShippingCost());
+				
+			}
+			
+			default ->
+			throw new IllegalArgumentException("Unexpected value: " + choice);
+			}	
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+}

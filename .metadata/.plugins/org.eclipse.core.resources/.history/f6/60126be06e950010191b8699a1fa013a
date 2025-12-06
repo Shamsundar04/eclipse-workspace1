@@ -1,0 +1,37 @@
+package predicate;
+
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+record Customer(String name, Double salary, Integer score, Integer age) {}
+
+public class LoanEligibilityWithPredicate {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter Customer Name: ");
+		String name=sc.next();
+		
+		System.out.print("Enter Salary: ");
+		Double salary=sc.nextDouble();
+		
+		System.out.print("Enter Credit Score: ");
+		Integer creditScore=sc.nextInt();
+		
+		System.out.print("Enter age: ");
+		Short age=sc.nextShort();
+		
+		Customer customer=new Customer(name, salary, creditScore, creditScore);
+		
+		Predicate<Customer> loanPredicate=(cust)->
+		cust.salary()>=2500 && cust.score()>=700 && cust.age()>21;
+		
+		if (loanPredicate.test(customer)) {
+			System.out.println(name+" is Eligible for Loan...");
+		}
+		else {
+			System.out.println(name+" is NOT Eligible for Loan..");
+		}
+	}
+}

@@ -1,0 +1,22 @@
+package in.oops;
+
+public class Constructors {
+	
+	int x,y;
+	public Constructors() {
+		this(10,20);
+	}
+	
+	public Constructors(int a, int b) {
+		x=a;
+		y=b;
+	}
+	
+
+	public static void main(String[] args) {
+		
+		User constructors=new User();
+		
+	}
+
+}

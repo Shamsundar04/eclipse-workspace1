@@ -1,0 +1,17 @@
+package com.java.supplier;
+
+import java.util.function.Supplier;
+
+public class SupplierDemo1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Supplier<Integer> random=()->40+40;
+		System.out.println(random.get());
+		
+		Supplier<String> str=()->"Hello Supplier";
+		System.out.println(str.get());
+	}
+
+}

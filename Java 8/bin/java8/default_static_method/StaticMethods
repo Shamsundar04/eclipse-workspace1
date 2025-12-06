@@ -1,0 +1,18 @@
+Comparator → Sorting business objects (employees, orders, products).
+
+: Java’s Comparator Interface
+
+The Comparator interface (from java.util) has static methods 
+like comparing(), naturalOrder(), and reverseOrder() 
+that are heavily used in sorting real-world data.
+
+
+Predicate → Conditional checks in authentication, validation, workflows.
+
+Stream → Data pipelines in finance, IoT, reporting.
+
+Collectors → Aggregation in analytics and dashboards.
+
+Optional → Safe handling of nulls in enterprise systems.
+
+Function.identity() → Simplifies mapping in ETL/data processing apps.

@@ -1,0 +1,35 @@
+package thread.joinmethod;
+
+class Bank extends Thread{
+	
+	private double balance=1000;
+	private double amount;
+
+	public Bank(double amount) {
+		this.amount=amount;
+	}
+
+	@Override
+	public void run() {
+		if (amount<=balance) {
+			balance=balance-amount;
+			System.out.println("amount withdraw successfully!!!");
+		}
+		else {
+			System.out.println("Insufficient amount");
+		}
+		
+	}	
+}
+
+public class DrawbackMultithreading {
+	public static void main(String[] args)throws Throwable {
+		
+		Bank sham=new Bank(1000);
+		Bank ajay=new Bank(1000);
+		
+		sham.start();
+		sham.join();
+		ajay.start();
+	}
+}		

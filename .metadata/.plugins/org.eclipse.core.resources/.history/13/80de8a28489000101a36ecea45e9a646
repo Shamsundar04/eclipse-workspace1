@@ -1,0 +1,54 @@
+package java8.default_methods;
+package com.sham.payments;
+
+interface Payment {
+    void pay(double amount);
+
+    // New feature introduced later, with default behavior
+    default void applyTransactionFee(double amount) {
+        double fee = amount * 0.02; // 2% default fee
+        System.out.println("Default Transaction Fee: " + fee);
+    }
+}
+
+class CreditCardPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid " + amount + " using Credit Card.");
+    }
+    // Uses default applyTransactionFee()
+}
+
+class DebitCardPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid " + amount + " using Debit Card.");
+    }
+    // Override to customize fee
+    @Override
+    public void applyTransactionFee(double amount) {
+        double fee = amount * 0.01; // 1% fee for debit
+        System.out.println("Debit Card Fee: " + fee);
+    }
+}
+
+class UpiPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid " + amount + " using UPI.");
+    }
+    // Uses default applyTransactionFee()
+}
+
+public class PaymentApp {
+    public static void main(String[] args) {
+        Payment credit = new CreditCardPayment();
+        credit.pay(1000);
+        credit.applyTransactionFee(1000);
+
+        Payment debit = new DebitCardPayment();
+        debit.pay(2000);
+        debit.applyTransactionFee(2000);
+
+        Payment upi = new UpiPayment();
+        upi.pay(500);
+        upi.applyTransactionFee(500);
+    }
+}

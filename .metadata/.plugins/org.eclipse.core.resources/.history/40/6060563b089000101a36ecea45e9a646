@@ -1,0 +1,15 @@
+package java8.default_methods;
+
+interface Payment{
+	void pay(double amount);
+	
+}
+
+public class PaymentApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

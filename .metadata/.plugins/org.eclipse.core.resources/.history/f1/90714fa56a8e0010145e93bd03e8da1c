@@ -1,0 +1,36 @@
+package com.sham.interfaces;
+
+interface Bank{
+	double getBalance();
+	void deposite(double amount);
+	void withdraw(double amount);
+	
+}
+
+
+class Customer implements Bank{
+
+	@Override
+	public void deposite(double amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void withdraw(double amount) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+
+public class BankApp {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

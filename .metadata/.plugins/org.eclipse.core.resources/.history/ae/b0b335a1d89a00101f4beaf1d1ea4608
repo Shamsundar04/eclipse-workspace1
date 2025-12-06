@@ -1,0 +1,197 @@
+package com.sham.exception;
+
+
+//public class ExceptionDemo {
+//	  public static void main(String[] argv) 
+//	  {
+//	    try 
+//	    {
+//	      throw new OutOfMemoryError();
+//	      System.out.println("Success");
+//	    }
+//	    catch (Exception e) 
+//	    {
+//	      System.out.println("General exception");
+//	    } 
+//	    finally
+//	    {
+//	      System.out.println("Doing finally part");
+//	    }
+//	    System.out.println("Carrying on");
+//	
+//	  }
+//	}
+
+//public class ExceptionDemo {
+//	static String s = "";
+//
+//	public static void main(String[] args) {
+//		try {
+//			s += "1"; // s=123
+//			throw new Exception();
+//		} catch (Exception e) {
+//			s += "2";
+//		} finally {
+//			s += "3";
+//			doStuff();
+//			s += "4";
+//		}
+//		System.out.println(s);
+//	}
+//
+//	static void doStuff() {
+//		int x = 0;
+//		int y = 7 / x;
+//	}
+//}
+
+
+//public class ExceptionDemo {
+//	static String s = "-";
+//
+//	public static void main(String[] args) {
+//		try {
+//			throw new Exception();
+//		} catch (Exception e) {
+//			try {
+//				try {
+//					throw new Exception();
+//				} catch (Exception ex) {
+//					s += "ic ";  // s -ic mc mf of 
+//				}
+//				throw new Exception();
+//			} catch (Exception x) {
+//				s += "mc ";
+//			} finally {
+//				s += "mf ";
+//			}
+//		} finally {
+//			s += "of ";
+//		}
+//		System.out.println(s);
+//	}
+//}
+
+
+public class ExceptionDemo {
+	public static void main(String[] args) {
+		try {
+			throw new java.io.IOException();
+		} catch (java.io.IOException exc) {
+			System.err.println("In catch IOException: " + exc.getClass());
+			throw new RuntimeException();
+		} catch (Exception exc) {
+			System.err.println("In catch Exception: " + exc.getClass());
+		} finally {
+			System.err.println("In finally");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//public class ExceptionDemo {
+//	public static void main(String[] argv) {
+//		try {
+//			throw new OutOfMemoryError();
+//		} catch (Exception e) {
+//			System.out.println(e.getStackTrace());
+//			System.out.println("General exception");
+//		} finally {
+//			System.out.println("Doing finally part");
+//		}
+//		System.out.println("Carrying on");
+//	}
+//}
+//-----------------------------------------------------------------------
+
+
+//import java.io.StreamCorruptedException;
+//import java.net.MalformedURLException;
+//
+//public class ExceptionDemo {
+//	public static void main(String[] argv) {
+//		try {
+//
+//			throw new MalformedURLException("bad url");
+//			throw new StreamCorruptedException("bad file");
+//			throw new Exception("bad");
+//			System.out.println("Success");
+//		} catch (MalformedURLException e) {
+//			System.out.println("Bad URL");
+//		} catch (StreamCorruptedException e) {
+//			System.out.println("Bad file contents");
+//		} catch (Exception e) {
+//			System.out.println("General exception");
+//		} finally {
+//			System.out.println("Doing finally part");
+//		}
+//		System.out.println("Carrying on");
+//
+//	}
+//}
+
+
+//	The reason you may think "finally is not executed" is because your original code does not even compile
+//	(because of unreachable code after the first throw).
+//	So if you’re running the raw version, the compiler won’t let you execute, meaning you’ll never reach finally.
+//---------------------------------------------------------------------
+
+
+
+
+
+
+
+
+//import java.io.FileNotFoundException;
+//
+//public class ExceptionDemo
+//{
+//       public static void main(String[] argv)  
+//       {
+//             try 
+//             {
+//                    throw new FileNotFoundException("");
+//             } 
+//			 catch (FileNotFoundException ex) 
+//              {;
+//                    System.out.println("book list not found!");
+//                    throw ex;
+//              }
+//       }
+//}
+
+
+
+
+//import java.io.FileNotFoundException;
+//
+//public class ExceptionDemo
+//{
+//       public static void main(String[] argv) throws Exception 
+//       {
+//             try 
+//             {
+//                    throw new FileNotFoundException("");
+//             } 
+//	      catch (FileNotFoundException ex) 
+//              {
+//                    System.out.println("book list not found!");
+//                    throw ex;
+//              }
+//       }
+//}

@@ -1,0 +1,45 @@
+	Ques - 1
+	------------
+	Write a java program to count how many elements are present more than one time.
+	
+	Input  : arr = [1,2,1,3,4,6,2,5,4]
+	Output : 3 elements are present more than one time 
+	
+	Ques - 2
+	------------
+	Write a java program to print all duplicate elements from a given array.
+	Input  : arr = [1,2,1,3,4,6,2,5,4]
+	Output : 1 2 4 
+	
+	Ques - 3
+	------------
+	Write a java program to print all unique elements from a given array.
+	Input  : arr = [1,2,1,3,4,6,2,5,4]
+	Output : 3 6 5
+	Ques - 4
+	------------
+	Write java method named findEvenandOddPositionElement that print all the elements which is present at even index and also in odd index.
+	
+	Ques - 5
+	-----------
+	Write java method named findSumOfOddandEvenPositionElement that print the all odd positions sum and also even
+	position sum.
+	
+	Ques - 6
+	-----------
+	Implement a Java program to find the frequency of each element in an integer array and display the results.
+	
+	Ques - 7
+	--------------
+	Implement a java program to find 2nd smallest element and 2nd largest element from an array and print it.
+	
+	arr : 1 2 3 2 4 1 6
+	Output : 2nd smallest element is : 2
+	         2nd largest element is  : 4
+	
+	Ques - 8
+	--------------
+	Implement a java program to find kth largest element in an unsorted array and print it.
+	
+	
+	

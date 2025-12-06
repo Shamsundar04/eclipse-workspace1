@@ -1,0 +1,45 @@
+package array;
+
+import java.util.Scanner;
+
+record Course(Integer id, String name, Double fee) {}
+record Offer(String offerText) {}
+
+record EducationInstitute(Course []courses, Offer []offers) {
+	
+	public void enrollStudentInCourse(int courseId, String studentName) {
+		
+	}
+}
+
+record Student(String name, EducationInstitute institute) {
+	
+	public void viewCoursesAndFees() {
+		
+	}
+	
+	public void viewOffer() {
+		
+	}
+	
+	public void enrollInCourse(Integer courseId) {
+		
+	}
+}
+
+public class StudentEnrollmentProcesss {
+	public static void main(String[] args) {
+		
+		Course course[]= {
+				new Course(1, "Java", 35000.0),
+				new Course(2, ".Net", 30000.0),
+				new Course(3, "Python", 32000.0)
+					};
+		
+		System.out.println("Enter student name: ");
+		Scanner scn=new Scanner(System.in);
+		String name=scn.nextLine();
+		
+		
+	}
+}

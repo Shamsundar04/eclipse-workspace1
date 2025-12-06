@@ -1,0 +1,47 @@
+package java8.default_methods;
+
+interface Payment {
+
+	void pay(double amount);
+
+	default void applyTransactionFee(double amount) {
+		double fee = amount * 0.02; // 2% default fee
+		System.out.println("Default Transaction Fee: " + fee);
+	}
+
+}
+
+class Credit implements Payment {
+	public void pay(double amount) {
+		System.out.println("Paid " + amount + " amount by credit card");
+	}
+}
+
+
+class Debit implements Payment {
+
+	public void pay(double amount) {
+		System.out.println("Paid " + amount + " amount by debit card");
+	}
+
+	public void applyTransationFees(double amount) {
+		double fees = amount * 0.50;
+		System.out.println("Debit card fees " + fees);
+	}
+}
+
+class UPI implements Payment {
+	public void pay(double amount) {
+		System.out.println("Paid " + amount + " amount by upi card");
+	}
+}
+
+
+public class PaymentApp {
+	
+	public static void main(String[] args) {
+		Payment payment = new Debit();
+		payment.pay(1000);
+		payment.applyTransactionFee(1000);
+	}
+}

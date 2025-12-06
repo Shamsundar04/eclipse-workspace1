@@ -1,0 +1,147 @@
+package com.sham.overriding;
+
+import java.awt.Choice;
+import java.util.Scanner;
+
+abstract class Product {
+	
+	private String name;
+	private double price;
+	private String category;
+	
+	public Product(String name, double price, String category) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.category = category;
+	}
+	
+	public abstract double calculateTax();
+	public abstract void applyDiscount(double percentage);
+	
+	
+	
+
+	/**
+	 * @return the price
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", price=" + price + ", category=" + category + "]";
+	}	
+}
+
+
+
+
+
+class DigitalProduct extends Product{
+	
+	private String lincenseKey;
+
+	public DigitalProduct(String name, double price, String category, String lincenseKey) {
+		super(name, price, category);
+		this.lincenseKey = lincenseKey;
+	}
+
+	@Override
+	public double calculateTax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void applyDiscount(double percentage) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String toString() {
+		return "DigitalProduct [lincenseKey=" + lincenseKey + "]";
+	}
+}
+
+
+class PhysicalProduct extends Product{
+	
+	private double shippingWeight;
+
+	public PhysicalProduct(String name, double price, String category, double shippingWeight) {
+		super(name, price, category);
+		this.shippingWeight = shippingWeight;
+	}
+
+	@Override
+	public double calculateTax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void applyDiscount(double percentage) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public double calculateShippingCost() {
+		return 9;
+	}
+
+	@Override
+	public String toString() {
+		return "PhysicalProduct [shippingWeight=" + shippingWeight + "]";
+	}	
+}
+
+public class ProductStore {
+
+	public static void main(String[] args) {
+		
+		try {
+			
+			System.out.println("Select Product Type :");
+			System.out.println("1. Digital Product");
+			System.out.println("2. Physical Product");
+			
+			Product product=null;
+			
+			Scanner scanner=new Scanner(System.in);
+			int choice=scanner.nextInt();
+			
+			switch (choice) {
+			case choice ->
+			System.out.println("Enter Digital Product Name :");
+			String name=scanner.nextLine();
+			System.out.println("Enter Product Price :");
+			double price=scanner.nextDouble();
+			System.out.println("Enter Product Category :");
+			String category=scanner.nextLine();
+			System.out.println("Enter Product License Key :");
+			String licenceKey=scanner.nextLine();
+			System.out.println("Enter the discount % on final bill");
+			int discount=scanner.nextInt();
+			
+			
+			default ->
+			throw new IllegalArgumentException("Unexpected value: " + choice);
+			}	
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+}

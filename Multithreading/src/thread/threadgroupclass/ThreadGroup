@@ -1,0 +1,56 @@
+	
+	ThreadGroup class:
+
+	* ThreadGroup is a predefined class available in java.lang package.
+	* It is mainly used to execute multiple threads under a particular group.
+	
+	By using ThreadGroup class we can put 'n' number of threads into a single group to 
+	perform some common/different operation.
+
+	By using ThreadGroup class constructor, we can assign the name of group under which 
+	all the thread will be executed.
+
+	ThreadGroup tg = new ThreadGroup (String groupName);
+	
+		ThreadGroup class has provided the following methods:
+		
+		public String getName(): To get the name of the Group
+		
+		pubic int activeCount(): How many threads are alive and running under that particular group.
+		
+		Thread class has provided constructor to put the thread into particular group.
+		
+		Thread t1 = new Thread(ThreadGroup tg, Runnable target, String name);
+	
+	By using ThreadGroup class, multiple threads will be executed under single group.
+	
+	
+	
+	
+Sham is processing salary in Accounting Department
+Vijay is processing salary in Accounting Department
+Ajay is processing salary in Accounting Department
+Rohan is preparing a new campaign in Marketing Department
+Kiran is preparing a new campaign in Marketing Department
+Sita is conducting an interview in HR Department
+Geeta is conducting an interview in HR Department
+
+===== Company Monitoring System =====
+Total Active Threads in Company: 7
+Total Active Departments: 3
+java.lang.ThreadGroup[name=Company-Group,maxpri=10]
+    ThreadGroup[name=Accounting-Department,maxpri=10]
+        Thread[Sham,5,Accounting-Department]
+        Thread[Vijay,5,Accounting-Department]
+        Thread[Ajay,5,Accounting-Department]
+    ThreadGroup[name=Marketing-Department,maxpri=10]
+        Thread[Rohan,5,Marketing-Department]
+        Thread[Kiran,5,Marketing-Department]
+    ThreadGroup[name=HR-Department,maxpri=10]
+        Thread[Sita,5,HR-Department]
+        Thread[Geeta,5,HR-Department]
+
+[ALERT] Marketing project cancelled! Interrupting Marketing Department...
+Kiran marketing task interrupted
+Rohan marketing task interrupted
+	

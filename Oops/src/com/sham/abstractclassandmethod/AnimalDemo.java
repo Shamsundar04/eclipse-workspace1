@@ -1,0 +1,54 @@
+package com.sham.abstractclassandmethod;
+
+ abstract class Animal {
+	public abstract void roam();
+}
+
+class Lion extends Animal{
+
+	@Override
+	public void roam() {
+		System.out.println("Lion is roaming");		
+	}
+	
+	public void roar() {
+		System.out.println("Lion is roaring");
+	}
+}
+
+class Dog extends Animal {
+	
+	@Override
+	public void roam() {
+		System.out.println("Dog is roaming");
+	}
+	
+	public void bark() {
+		System.out.println("Dong is barking");
+	}
+}
+
+public class AnimalDemo{
+	public static void main(String[] args) {
+	
+		Animal animal=new Lion();
+		animal.roam();
+		getAnimal(animal);
+		System.out.println("------------------");
+	    Animal animal2=new Dog();
+	    animal2.roam();
+	    getAnimal(animal2);
+	    
+	}
+	
+	public static void getAnimal(Animal animal) {
+		
+		if (animal instanceof Dog dog) {
+			dog.bark();
+		}
+		else if (animal instanceof Lion lion) {
+			lion.roar();
+		}
+		
+	}
+}

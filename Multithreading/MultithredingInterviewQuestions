@@ -1,0 +1,46 @@
+	Thread class Constructor:
+	
+	* Thread class provided total 10 contsructors. 
+	The following are the commonly used constructor of Thread class.
+	1) Thread t1 = new Thread();
+	2) Thread t2 = new Thread(String name);
+	3) Thread t3 = new Thread(Runnable target); //loose Coupling
+	4) Thread t4 = new Thread(Runnable target, String name);
+	5) Thread t5 = new Thread(ThreadGroup tg, Runnable target);
+	6) Thread t6 = new Thread(ThreadGroup tg, String name);
+	7) Thread t7 = new Thread(ThreadGroup tg, Runnable target, String name);
+	
+	## Synchronization :- 
+	Synchronization allowing only one thread at a time to access a shared resource 
+	(like a variable, method, or object).
+	
+	## Race Condition :-
+	A race condition happens when two or more threads try to access or modify the same data at the same time,
+	and the final result depends on the order in which the threads run.
+	
+	## Technical Definition :- 
+	In Java, synchronization is a thread-safety mechanism that prevents race conditions by 
+	using an intrinsic lock (monitor) associated with every object.
+
+	When one thread acquires the lock on an object,
+	No other thread can enter a synchronized method or block on that same object until the lock is released.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		What is the purpose of the sleep() method in Java?
+	✅ Simple Explanation:
+	
+	The sleep() method is used to pause the execution of the current thread for 
+	a specific time (in milliseconds or nanoseconds).
+	
+	When a thread calls sleep(), it moves from the RUNNING state to the TIMED_WAITING state.
+	
+	After the specified time, the thread becomes RUNNABLE again and waits for CPU scheduling.
+	
+	
