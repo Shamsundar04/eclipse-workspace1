@@ -355,8 +355,7 @@ public class Stram84 {
 //		   - Determine the total count of employees.
 		
 //		long count = list.stream().count();
-//		System.out.println(count);
-		
+//		System.out.println(count);  eclipse-workspace1
 		
 //		33. Find the Most Common Age Among Employees:
 //		   - Determine the age that is most common among the employees.
