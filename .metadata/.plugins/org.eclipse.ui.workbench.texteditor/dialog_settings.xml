@@ -10,10 +10,17 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="max"/>
+			<item value="comparato"/>
+			<item value="comparato]]\"/>
+			<item value="toString()"/>
+			<item value="comparing"/>
+			<item value="compar"/>
+			<item value="Sort"/>
+			<item value="sort"/>
 			<item value="sorted"/>
 			<item value="SortedS"/>
 			<item value="asLIst"/>
-			<item value="comparing"/>
 			<item value="Node"/>
 			<item value="foreach"/>
 			<item value="name"/>

@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=C\:\\Users\\lenovo\\eclipse-workspace1\\E-commerce App\\.git;C\:\\Users\\lenovo\\git\\repository\\.git;C\:\\Users\\lenovo\\eclipse-workspace1\\Banking_App\\.git;C\:\\Users\\lenovo\\git\\repository2\\.git;
-GitRepositoriesView.GitDirectories.relative=E-commerce App\\.git;C\:\\Users\\lenovo\\git\\repository\\.git;Banking_App\\.git;C\:\\Users\\lenovo\\git\\repository2\\.git;
+GitRepositoriesView.GitDirectories=C\:\\Users\\lenovo\\eclipse-workspace1\\E-commerce App\\.git;C\:\\Users\\lenovo\\git\\repository\\.git;C\:\\Users\\lenovo\\eclipse-workspace1\\.git;C\:\\Users\\lenovo\\eclipse-workspace1\\Banking_App\\.git;C\:\\Users\\lenovo\\git\\repository2\\.git;
+GitRepositoriesView.GitDirectories.relative=E-commerce App\\.git;C\:\\Users\\lenovo\\git\\repository\\.git;.git;Banking_App\\.git;C\:\\Users\\lenovo\\git\\repository2\\.git;
 core_ssh_default_agent=\\\\.\\pageant
 eclipse.preferences.version=1

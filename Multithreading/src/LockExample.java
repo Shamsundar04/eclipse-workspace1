@@ -1,4 +1,5 @@
 
+
 class ATM {
     synchronized void useATM(String name) {
         System.out.println(name + " entered the ATM");

@@ -11,6 +11,7 @@ public class Test05_Stmt_InserRows {
 	private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String DB_USER = "shamsundar";
 	private static final String DB_PASSWORD = "shamsundar1234";
+//	c##sham/sham12345
 
 	public static void main(String[] args) {
 

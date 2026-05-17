@@ -1,327 +1,327 @@
-Program 01 :
-------------
-Create an application to compare two objects based on the content by overriding the equals(Object obj) method of Object class.
-
-Create a BLC class called Product
-
-Instance variables :
-private int productId
-private String productName
-
-Create a parameterized constructor to initialize all properties.
-
-Override equals(Object obj) method from Object class to compare the content of Product object, Make sure that if end user try to compare the content of two different objects (Product and Employee) then program should provide proper message.
-
-Create an ELC class ProductEquality to test your application by creating two objects of Product class to compare the content by calling Product class overridden equals(Object obj) method.
-
-Follow the equals() and hashCode() contract.
-
-==========================================================================================
-1.Fill the code and the Output is "Welcome to NareshIT"
-
-public class OopsTest
-{
-    public String nit()
-    {
-        return "Welcome ";
-    }
-
-    public static void main(String[] args)
-    {
-    	OopsTest n = new OopsTest();
-        System.out.print(n.nit());
-        OopsTest nit1 = new NIT();
-        System.out.print(nit1.nit());
-    }
-}
-class NIT extends OopsTest
-{
-    //Add code here
-}	
-
---------------------------------------------------------------
-2.What is the output of the following code?
-class NIT
-{	int name;
-		NIT(int name)
-		{	this.name = name;
+	Program 01 :
+	------------
+	Create an application to compare two objects based on the content by overriding the equals(Object obj) method of Object class.
+	
+	Create a BLC class called Product
+	
+	Instance variables :
+	private int productId
+	private String productName
+	
+	Create a parameterized constructor to initialize all properties.
+	
+	Override equals(Object obj) method from Object class to compare the content of Product object, Make sure that if end user try to compare the content of two different objects (Product and Employee) then program should provide proper message.
+	
+	Create an ELC class ProductEquality to test your application by creating two objects of Product class to compare the content by calling Product class overridden equals(Object obj) method.
+	
+	Follow the equals() and hashCode() contract.
+	
+	==========================================================================================
+	1.Fill the code and the Output is "Welcome to NareshIT"
+	
+	public class OopsTest
+	{
+	    public String nit()
+	    {
+	        return "Welcome ";
+	    }
+	
+	    public static void main(String[] args)
+	    {
+	    	OopsTest n = new OopsTest();
+	        System.out.print(n.nit());
+	        OopsTest nit1 = new NIT();
+	        System.out.print(nit1.nit());
+	    }
+	}
+	class NIT extends OopsTest
+	{
+	    //Add code here
+	}	
+	
+	--------------------------------------------------------------
+	2.What is the output of the following code?
+	class NIT
+	{	int name;
+			NIT(int name)
+			{	this.name = name;
+			}
+	}
+	public class OopsTest
+	{	public static void main(String[] args) 
+	{	NIT f1 = new NIT(10);
+		NIT f2 = new NIT(10);
+		NIT f3 = f2;
+		System.out.println(f1==f2);
+		System.out.println(f2==f3);
+		System.out.println(f1.name==f2.name);
+		System.out.println(f2.name==f3.name);
+		System.out.println(f1!=f3);
+			}
+	}
+	
+	-------------------------------------------------------------------------
+	3.What is the output of the following code?
+	class Mammal{
+	void eat(Mammal m){
+	System.out.println(“Mammal eats food”);
+	}
+	}
+	
+	class Cattle extends Mammal{
+	void eat(Cattle c){
+	System.out.println(“Cattle eats hay”);
+	}
+	}
+	
+	class Horse extends Cattle{
+	void eat(Horse h){
+	System.out.println(“Horse eats hay”);
+	}
+	}
+	public class Test{
+	public static void main(String[] args){
+	Mammal h = new Horse();
+	Cattle c = new Horse();
+	c.eat(h);
+	}
+	}
+	-----------------------------------------------------------
+	4. Solve the below code having error
+	class NIT
+	{
+		int a;
+		public NIT(int a) {
+			this.a=a;
 		}
-}
-public class OopsTest
-{	public static void main(String[] args) 
-{	NIT f1 = new NIT(10);
-	NIT f2 = new NIT(10);
-	NIT f3 = f2;
-	System.out.println(f1==f2);
-	System.out.println(f2==f3);
-	System.out.println(f1.name==f2.name);
-	System.out.println(f2.name==f3.name);
-	System.out.println(f1!=f3);
+		static int getNum()
+		{
+			return this.a;
 		}
-}
-
--------------------------------------------------------------------------
-3.What is the output of the following code?
-class Mammal{
-void eat(Mammal m){
-System.out.println(“Mammal eats food”);
-}
-}
-
-class Cattle extends Mammal{
-void eat(Cattle c){
-System.out.println(“Cattle eats hay”);
-}
-}
-
-class Horse extends Cattle{
-void eat(Horse h){
-System.out.println(“Horse eats hay”);
-}
-}
-public class Test{
-public static void main(String[] args){
-Mammal h = new Horse();
-Cattle c = new Horse();
-c.eat(h);
-}
-}
------------------------------------------------------------
-4. Solve the below code having error
-class NIT
-{
-	int a;
-	public NIT(int a) {
-		this.a=a;
 	}
-	static int getNum()
+	class NIT1 extends NIT
 	{
-		return this.a;
+		int a;
+		public NIT1(int a,int b) {
+			super(a);
+			this.a=b;
+		}
+		int getVal()
+		{
+			return this.a;
+		}
 	}
-}
-class NIT1 extends NIT
-{
-	int a;
-	public NIT1(int a,int b) {
-		super(a);
-		this.a=b;
-	}
-	int getVal()
-	{
-		return this.a;
-	}
-}
-class OopsMCQ{
-public static void main(String[] args) {
-	NIT1 nit = new NIT1(74,152);
-	System.out.print(nit.getNum()+" "+nit.getVal());
-	}
-}
---------------------------------------------------------------------------------
-5.What is the output for the code given below?
-class NIT
-{
-	static int a=90;
-	String object;
-	public NIT(String name) {
-		this.object=name;
-		NIT.this.a+=1;
-	}
-	static int get_counter()
-	{
-		return NIT.a;
-	}
-}
-
-public class OopsTest
-{
+	class OopsMCQ{
 	public static void main(String[] args) {
-		NIT nit = new NIT("nit");
-		NIT nit1 = new NIT("nit");
-		NIT nit2 = new NIT("nit");
-		NIT nit3 = new NIT("nit");
-		NIT nit4 = new NIT("nit");
-		NIT nit5 = new NIT("nit");
-		NIT nit6 = new NIT("nit");
-		NIT nit7 = new NIT("nit");
-		System.out.println(NIT.get_counter()-91);
+		NIT1 nit = new NIT1(74,152);
+		System.out.print(nit.getNum()+" "+nit.getVal());
+		}
 	}
-}
----------------------------------------------------------------------
-
-6.What is the output for the code given below?
-class NIT
-{
-	static int a=90;
-	String object;
-	public NIT(String name) {
-		this.object=name;
-		NIT.this.a+=1;
-	}
-	static int get_counter()
+	--------------------------------------------------------------------------------
+	5.What is the output for the code given below?
+	class NIT
 	{
-		return NIT.a;
+		static int a=90;
+		String object;
+		public NIT(String name) {
+			this.object=name;
+			NIT.this.a+=1;
+		}
+		static int get_counter()
+		{
+			return NIT.a;
+		}
 	}
-}
-
-public class OopsTest
-{
+	
+	public class OopsTest
+	{
+		public static void main(String[] args) {
+			NIT nit = new NIT("nit");
+			NIT nit1 = new NIT("nit");
+			NIT nit2 = new NIT("nit");
+			NIT nit3 = new NIT("nit");
+			NIT nit4 = new NIT("nit");
+			NIT nit5 = new NIT("nit");
+			NIT nit6 = new NIT("nit");
+			NIT nit7 = new NIT("nit");
+			System.out.println(NIT.get_counter()-91);
+		}
+	}
+	---------------------------------------------------------------------
+	
+	6.What is the output for the code given below?
+	class NIT
+	{
+		static int a=90;
+		String object;
+		public NIT(String name) {
+			this.object=name;
+			NIT.this.a+=1;
+		}
+		static int get_counter()
+		{
+			return NIT.a;
+		}
+	}
+	
+	public class OopsTest
+	{
+		public static void main(String[] args) {
+			NIT nit = new NIT("nit");
+			NIT nit1 = new NIT("nit");
+			NIT nit2 = new NIT("nit");
+			NIT nit3 = new NIT("nit");
+			NIT nit4 = new NIT("nit");
+			NIT nit5 = new NIT("nit");
+			NIT nit6 = new NIT("nit");
+			NIT nit7 = new NIT("nit");
+			System.out.println(NIT.get_counter()-91);
+		}
+	}
+	-------------------------------------------------------------------
+	7.What is the output of the following code?
+	class NIT
+	{
+		public int nit() { 
+			return 10;
+		}
+		
+		protected  int nit1() 
+		{
+			return 5;
+		}
+	}
+	
+	class NIT1 extends NIT
+	{
+		@Override
+		public int nit() {
+			return super.nit();
+		}
+		
+		public int nit1() 
+		{
+			return 15;
+		}
+		
+		private int nit2() 
+		{
+			return 20;
+		}
+	}
+	
+	class NIT2 extends NIT1
+	{
+		public int nit() 
+		{
+			return 0;
+			
+		}
+		
+		int nit1() 
+		{
+			return 50;
+		}
+	}
+	class OopsTest
+	{
+		public static void main(String[] args) {
+			NIT object = new NIT();
+			NIT object1 = new NIT1();
+			NIT object2 = new NIT2();
+			NIT1 object3 = new NIT2();		System.out.println(object.nit()+object1.nit1()+object1.nit()+object3.nit1()+object2.nit1());
+		}
+	}
+	------------------------------------------------------------------------------
+	8.What is the output of the following code
+	class NIT{
+		String name;
+		public NIT(String name) {
+			this.name=name;
+		}
+	}
+	class NIT1 extends NIT{
+		String programmingLanguage;
+		public NIT1(String programmingLanguage, String name) {
+			super(name);
+			this.programmingLanguage=programmingLanguage;
+		}
+	}
+	class NIT2 extends NIT{
+		String faculty;
+		public NIT2(String faculty) {
+			super("Naresh");
+			this.faculty=faculty;
+		}
+	}
+	class OopsTest{
 	public static void main(String[] args) {
-		NIT nit = new NIT("nit");
-		NIT nit1 = new NIT("nit");
-		NIT nit2 = new NIT("nit");
-		NIT nit3 = new NIT("nit");
-		NIT nit4 = new NIT("nit");
-		NIT nit5 = new NIT("nit");
-		NIT nit6 = new NIT("nit");
-		NIT nit7 = new NIT("nit");
-		System.out.println(NIT.get_counter()-91);
+		NIT nit = new NIT("Project");
+		System.out.print(nit.name+" ");
+		NIT1 nit1= new NIT1("Java","NareshIT");
+		System.out.print(nit1.name+" "+nit1.programmingLanguage+" ");
+		NIT2 nit2 = new NIT2("Naidu");
+		System.out.println(nit2.name+" "+nit2.faculty);
+		}
 	}
-}
--------------------------------------------------------------------
-7.What is the output of the following code?
-class NIT
-{
-	public int nit() { 
-		return 10;
-	}
-	
-	protected  int nit1() 
+	------------------------------------------------------------------------------------
+	9.What is the output of the following code
+	class NIT
 	{
-		return 5;
+		static String val = "Welcome to nareshIT";
+		String language;
+		String faculty;
+		String student;
+		
+		public NIT(String language, String faculty, String student) {
+			this.faculty = faculty;
+			this.language = language;
+			this.student = student;
+		}	
+		public void get() 
+		{
+			System.out.println(this.faculty+" "+this.language+" "+this.student);
+		}
 	}
-}
-
-class NIT1 extends NIT
-{
-	@Override
-	public int nit() {
-		return super.nit();
-	}
-	
-	public int nit1() 
+	class OopsTest
 	{
-		return 15;
+		public static void main(String[] args) {
+			NIT nit = new NIT("Java", "Naresh", "IT");
+			nit.get();
+		}
 	}
-	
-	private int nit2() 
+	----------------------------------------------------------------------------------------
+	10.We found errors in line1, line2 and line3. How to resolve the errors in the below code
+	class NIT
 	{
-		return 20;
-	}
-}
-
-class NIT2 extends NIT1
-{
-	public int nit() 
-	{
-		return 0;
+		String val = "NareshIT";
+		String language;
+		String faculty;
+		String student;
+		
+		public NIT(String language, String faculty, String student) {
+			this.faculty = faculty;
+			this.language = language;
+			this.student = student;
+		}
+		
+		static public String get() 
+		{
+			return val; // line 1
+		}
+		
+		public void getValues() 
+		{
+			System.out.println(NIT.this.faculty+" "+NIT.language+" "+NIT.student); // line 2
+		}
 		
 	}
 	
-	int nit1() 
+	class OopsTest
 	{
-		return 50;
+		public static void main(String[] args) {
+			System.out.println("Welcome to "+NIT.get());
+			new NIT("Java", "Naresh", "IT");
+			NIT.getValues(); // line 3
+		}
 	}
-}
-class OopsTest
-{
-	public static void main(String[] args) {
-		NIT object = new NIT();
-		NIT object1 = new NIT1();
-		NIT object2 = new NIT2();
-		NIT1 object3 = new NIT2();		System.out.println(object.nit()+object1.nit1()+object1.nit()+object3.nit1()+object2.nit1());
-	}
-}
-------------------------------------------------------------------------------
-8.What is the output of the following code
-class NIT{
-	String name;
-	public NIT(String name) {
-		this.name=name;
-	}
-}
-class NIT1 extends NIT{
-	String programmingLanguage;
-	public NIT1(String programmingLanguage, String name) {
-		super(name);
-		this.programmingLanguage=programmingLanguage;
-	}
-}
-class NIT2 extends NIT{
-	String faculty;
-	public NIT2(String faculty) {
-		super("Naresh");
-		this.faculty=faculty;
-	}
-}
-class OopsTest{
-public static void main(String[] args) {
-	NIT nit = new NIT("Project");
-	System.out.print(nit.name+" ");
-	NIT1 nit1= new NIT1("Java","NareshIT");
-	System.out.print(nit1.name+" "+nit1.programmingLanguage+" ");
-	NIT2 nit2 = new NIT2("Naidu");
-	System.out.println(nit2.name+" "+nit2.faculty);
-	}
-}
-------------------------------------------------------------------------------------
-9.What is the output of the following code
-class NIT
-{
-	static String val = "Welcome to nareshIT";
-	String language;
-	String faculty;
-	String student;
-	
-	public NIT(String language, String faculty, String student) {
-		this.faculty = faculty;
-		this.language = language;
-		this.student = student;
-	}	
-	public void get() 
-	{
-		System.out.println(this.faculty+" "+this.language+" "+this.student);
-	}
-}
-class OopsTest
-{
-	public static void main(String[] args) {
-		NIT nit = new NIT("Java", "Naresh", "IT");
-		nit.get();
-	}
-}
-----------------------------------------------------------------------------------------
-10.We found errors in line1, line2 and line3. How to resolve the errors in the below code
-class NIT
-{
-	String val = "NareshIT";
-	String language;
-	String faculty;
-	String student;
-	
-	public NIT(String language, String faculty, String student) {
-		this.faculty = faculty;
-		this.language = language;
-		this.student = student;
-	}
-	
-	static public String get() 
-	{
-		return val; // line 1
-	}
-	
-	public void getValues() 
-	{
-		System.out.println(NIT.this.faculty+" "+NIT.language+" "+NIT.student); // line 2
-	}
-	
-}
-
-class OopsTest
-{
-	public static void main(String[] args) {
-		System.out.println("Welcome to "+NIT.get());
-		new NIT("Java", "Naresh", "IT");
-		NIT.getValues(); // line 3
-	}
-}

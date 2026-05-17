@@ -6,9 +6,8 @@ public class FirstWordOfString {
 
 		String str="World Health Organization";
 		
-		String[] word=str.split(" ");
 
-		for (String string : word) {
+		for (String string : str.split(" ")) {
 			System.out.print(string.charAt(0));
 		}
 		

@@ -4,23 +4,26 @@ public class CountFrequency {
 
 	public static void main(String[] args) {
 		
-		int []a= {36,19,29,12,5};
+		int []a= {3,9,3,2,9};
 		
-		int temp=0;
+		boolean freq[]=new boolean[a.length];
 		
 		for (int i = 0; i < a.length; i++) {
+			int count=1;
+			
+			if (freq[i]==true) {
+				continue;
+			}
+			
 			for (int j = i+1; j < a.length; j++) {
 				
-				if (a[i]>a[j]) {
-					temp=a[i];
-					a[i]=a[j];
-					a[j]=temp;
+				if (a[i]==a[j]) {
+					count++;
+					freq[j]=true;
 				}
 			}
-		}
-		
-		for(int no:a) {
-			System.out.println(no);
+			
+			System.out.println(a[i]+" -> "+count);
 		}
 	}
 }

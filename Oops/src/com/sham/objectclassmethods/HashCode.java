@@ -9,16 +9,16 @@ public class HashCode {
 //  Default hashCode() (from Object class) generates a unique value based on memory address,
 //	unless overridden.
 
-//		Integer integer=65;
-//		String string="A";
-//		System.out.println(integer.hashCode());
-//		System.out.println(string.hashCode());
-
-		String string = "sh";
-		String string2 = "sh";
-		System.out.println(string.equals(string2));
+		Integer integer=65;
+		String string="A";
+		System.out.println(integer.hashCode());
 		System.out.println(string.hashCode());
-		System.out.println(string2.hashCode());
+
+//		String string = "sh";
+//		String string2 = "sh";
+//		System.out.println(string.equals(string2));
+//		System.out.println(string.hashCode());
+//		System.out.println(string2.hashCode());
 
 //		String str1 = "FB";
 //		String str2 = "Ea";

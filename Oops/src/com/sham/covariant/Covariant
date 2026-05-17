@@ -1,5 +1,10 @@
 		Here are Top Interview Questions on Covariant Return Types in Java with answers (both simple and technical):
 	
+	Before Java 5, when overriding a method, the return type had to be exactly the same.
+	From Java 5 onward, Java allows returning a subclass type (covariant return type).
+	This improves type safety, supports polymorphism, and reduces boilerplate casting.
+	
+	
 	Q1. What is a covariant return type in Java?
 	
 	✅ Simple Answer:

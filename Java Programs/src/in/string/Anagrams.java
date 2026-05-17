@@ -16,7 +16,7 @@ public class Anagrams {
 		str2=str2.toLowerCase();
 		
 		if (str1.length()!=str2.length()) {
-			System.out.println("Not Anagram");
+			System.out.println("Not anagram");
 		}
 		
 		char[] arr1 = str1.toCharArray();
@@ -24,6 +24,7 @@ public class Anagrams {
 		
 		Arrays.sort(arr1);
 		Arrays.sort(arr2);
+		
 		
 		if (Arrays.equals(arr1, arr2)) {
 			System.out.println("Anagram");

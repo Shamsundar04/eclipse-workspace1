@@ -10,9 +10,7 @@ public class Count {
 		
 	       for(String words:word)
 	       {
-	    	   System.out.println(words+"="+words.length());
-	       }
-
+	    	   System.out.println(words+" = "+words.length());
+	      }
 	}
-
 }

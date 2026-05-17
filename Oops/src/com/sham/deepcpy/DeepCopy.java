@@ -30,7 +30,8 @@ public class DeepCopy {
         Address addr = new Address("Pune");
         Main s1 = new Main(1, addr);
         Main s2 = (Main) s1.clone(); // deep copy
-
+        
+        int fa=2;
         System.out.println(s1.address.city); // Pune
         System.out.println(s2.address.city); // Pune
 

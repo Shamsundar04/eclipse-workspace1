@@ -8,12 +8,11 @@ public class FirstRepeatChar {
 
 		HashSet<Character> set = new HashSet<>();
 
-		for (char ch : name.toCharArray()) { // geeks
+		for (char ch : name.toCharArray()) { // geksg
 
-			if (set.contains(ch)) {
+			if (set.contains(ch))
 				return ch;
-			}
-			
+
 			set.add(ch);   //ge
 		}
 		return null;
@@ -21,18 +20,16 @@ public class FirstRepeatChar {
 
 	public static void main(String[] args) {
 
-		String name = "geks";
+		String name = "geksg";
 
 //		FirstRepeatChar obj = new FirstRepeatChar();
 		Character result = FirstRepeatChar.firstRepeatChar(name);
-		
+
 		if (result != null) {
 			System.out.println("first repeate character : "+result);
 		}
 		else {
 			System.out.println("not repeate character");
 		}
-		
-
 	}
 }

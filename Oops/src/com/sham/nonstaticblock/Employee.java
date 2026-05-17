@@ -15,6 +15,14 @@ package com.sham.nonstaticblock;
 	Initializing instance variables with complex logic.
 	
 	Shared initialization for multiple constructors.
+	
+	
+| package           | import                |
+| ----------------- | --------------------- |
+| Defines package   | Accesses package      |
+| Written first     | Written after package |
+| Creates namespace | Uses namespace        |
+
 */
 public class Employee {
 
@@ -37,6 +45,10 @@ public class Employee {
 		
 		Employee emp=new Employee();
 		System.out.println(emp.age);
+		
+		if (emp instanceof Employee) {
+			System.out.println(true);
+		}
 		
 		new Employee();
 	}

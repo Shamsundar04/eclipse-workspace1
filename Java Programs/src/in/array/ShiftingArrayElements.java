@@ -8,19 +8,30 @@ public class ShiftingArrayElements {
           int[] arr = {10, 20, 30, 40, 50};
           int k = 2; // number of shifts
           int n = arr.length;
-
-          // Temporary array
+          
           int[] temp = new int[n];
-
-          for (int i = 0; i < n; i++) {
-              temp[(i + k) % n] = arr[i];
+          
+          for(int i=0;i<arr.length;i++) {
+        	  temp[(i+k)%n]=arr[i];
           }
-          // Copy back
-          arr = temp;
+          
+          
+          
+          
+          
 
-          for (int num : arr) {
-              System.out.print(num + " ");
-          }
+//          // Temporary array
+//          int[] temp = new int[n];
+//
+//          for (int i = 0; i < n; i++) {
+//              temp[(i + k) % n] = arr[i];
+//          }
+//          // Copy back
+//          arr = temp;
+//
+//          for (int num : arr) {
+//              System.out.print(num + " ");
+//          }
     	
     	
 //    	Left Rotation

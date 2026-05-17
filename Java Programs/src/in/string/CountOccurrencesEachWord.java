@@ -4,8 +4,30 @@ import java.util.HashMap;
 
 public class CountOccurrencesEachWord {
 	public static void main(String[] args) {
-		String words = "Test Automation Java Automation Automation Automation";
+		String words = "Test Automation Test Java Automation Automation Automation";
+
+		// convert to lower case
+		words = words.toLowerCase();
+
 		String[] split = words.split(" ");
+		boolean visited[] = new boolean[split.length];
+
+		for(int i = 0; i < split.length; i++) {
+
+		    if(visited[i]) {
+		        continue;
+		    }
+		    int count = 1;
+
+		    for(int j = i + 1; j < split.length; j++) {
+		        if(split[i].equals(split[j])) {
+		            count++;
+		            visited[j] = true;
+		        }
+		    }
+
+		    System.out.println(split[i] + " -> " + count);
+		}
 
 //        for (int i = 0; i < split.length; i++) {
 //            int count = 1; // word appears at least once
@@ -21,6 +43,8 @@ public class CountOccurrencesEachWord {
 //                System.out.println(split[i] + " : " + count);
 //            }
 //        }
+		
+		
 
 		HashMap<String, Integer> map = new HashMap<>();
 		for (String word : split) {

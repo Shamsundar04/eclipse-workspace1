@@ -711,8 +711,8 @@ public class Tester {
 		.map(Map.Entry::getKey).get();
 		System.out.println(double1);
 		
-//		70. Find the Oldest Employee with the Lowest Salary:
-//			   - Find the oldest employee with the lowest salary.
+	//		70. Find the Oldest Employee with the Lowest Salary:
+	//			   - Find the oldest employee with the lowest salary.
 		System.out.println(RED+"*******Find the oldest employee with the lowest salary.*****"+RESET);
 		Employee employee9 = list.stream()
 		.filter(k->k.getAge()==list.stream().mapToInt(Employee::getAge).max().getAsInt())
