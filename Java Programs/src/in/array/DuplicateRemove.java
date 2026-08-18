@@ -1,5 +1,4 @@
 package in.array;
-
 public class DuplicateRemove {
 
 	public static void main(String[] args) {
@@ -22,44 +21,29 @@ public class DuplicateRemove {
 //		for (int i=0;i<=temp;i++) {
 //			System.out.print(b[i]+" ");
 //		}			
-			
-	
-			
-			
+							
+		int a[] = {1, 2, 1, 3, 2, 4};
+		int n=a.length;
 		
+		for(int i=0;i<n;i++) {
+			
+			for(int j=i+1;j<n;j++) {
+				
+				if (a[i]==a[j]) {
+
+					for(int k=j;k<n-1;k++) {
+						a[k]=a[k+1];
+					}
+
+					n--;					
+				}
+			}
+		}
 		
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-//		int a[] = {1, 2, 1, 3, 2, 4};
-//		int n=a.length;
-//		
-//		for(int i=0;i<n;i++) {
-//			
-//			for(int j=i+1;j<n;j++) {
-//				
-//				if (a[i]==a[j]) {
-//					
-//					for(int k=j;k<n-1;k++) {
-//						a[k]=a[k+1];
-//					}
-//					
-//					n--;					
-//				}
-//			}
-//		}
-//		
-//		
-//		for (int i = 0;i<n;i++) {
-//			System.out.print(a[i]+" ");
-//		}
+
+		for (int i = 0;i<n;i++) {
+			System.out.print(a[i]+" ");
+		}
 		
 		
 		

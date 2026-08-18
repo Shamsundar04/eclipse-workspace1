@@ -59,8 +59,6 @@ public class Test05_Stmt_InserRows {
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-//			System.out.println(e.getCause());
 		}
-
 	}
 }

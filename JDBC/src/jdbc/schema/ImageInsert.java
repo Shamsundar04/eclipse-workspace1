@@ -17,15 +17,15 @@ public class ImageInsert {
         FileInputStream fis = null;
 
         try {
-            // 1️⃣ Load Oracle JDBC Driver
+        	
             Class.forName(DRIVER_CLASS);
             System.out.println("Driver Loaded");
+            
 
-            // 2️⃣ Establish Connection
             con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("Connection Established");
 
-            // 3️⃣ Prepare SQL Query with placeholders
+            
             String sql = "INSERT INTO employee (name, salary, photo) VALUES (?, ?, ?)";
             ps = con.prepareStatement(sql);
 
