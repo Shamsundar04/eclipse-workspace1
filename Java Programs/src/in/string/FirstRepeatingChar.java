@@ -24,7 +24,6 @@ public class FirstRepeatingChar {
 			System.out.println(str.charAt(i));
 			break;
 		}
-    	 
      }
      
      System.out.println(firstRep(str));

@@ -11,7 +11,6 @@ public class CheckLowerUpper {
 		char ch = scanner.next().charAt(0);
 		String result = ch >= 'a' && ch <= 'z' ? "lower" : "upper";
 		System.out.println(result);
-		scanner.close();
 
 	}
 

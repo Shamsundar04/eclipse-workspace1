@@ -12,14 +12,14 @@ public class CheckOneStringContainsAnother {
 					return true;
 				}
 	        }
-
+	        
 	        return false;
 	    }
 
 	    public static void main(String[] args) {
 
 	        String s1="abcd";
-	        String s2="daeec";
+	        String s2="cdab";
 
 	        System.out.println(checkShift(s1,s2));
 	    }

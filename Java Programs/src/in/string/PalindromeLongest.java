@@ -12,7 +12,7 @@ public class PalindromeLongest {
 			for (int j = i + 1; j < str.length(); j++) {
 				String sub = str.substring(i, j);
 				
-				System.out.println(sub);
+//				System.out.println(sub);
 				
 //				System.out.println(sub);
 //				if (isPalindrome(sub) && sub.length() > longest.length()) {
